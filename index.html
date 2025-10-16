@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restigon - Trust the fix</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #000000, #111111, #000000);
+            animation: gradientBG 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 30px;
+            animation: logoBounce 2s infinite;
+        }
+
+        @keyframes logoBounce {
+            0%, 100% { transform: translateY(0);}
+            50% { transform: translateY(-15px);}
+        }
+
+        h1 {
+            color: #A42B2F; /* Dark Red */
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        p {
+            color: #ffffff; /* White for visibility */
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.85;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 12px 25px;
+            color: #fff;
+            background-color: #A42B2F; /* Dark Red */
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .social-buttons a:hover {
+            background-color: #8B2325;
+            transform: scale(1.05);
+        }
+
+        .subscribe-form {
+            margin-top: 30px;
+        }
+
+        .subscribe-form input[type="email"] {
+            padding: 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            width: 250px;
+        }
+
+        .subscribe-form button {
+            padding: 12px 25px;
+            border: none;
+            background-color: #A42B2F;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #8B2325;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            .subscribe-form input[type="email"] {
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- লোগো এখানে বসাও -->
+    <img src="Resigon.png" alt="Restigon Logo" class="logo">
+
+    <h1>Welcome to Restigon</h1>
+    <p>Trust the Fix</p>
+
+    <!-- সোশ্যাল লিঙ্ক -->
+    <div class="social-buttons">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </div>
+
+    <!-- সাবস্ক্রিপশন ফর্ম -->
+    <form class="subscribe-form" action="#" method="POST">
+        <input type="email" placeholder="Your Email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</body>
+</html>
