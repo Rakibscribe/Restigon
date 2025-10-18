@@ -13,7 +13,7 @@ body {
 
 /* --- Hero Section (ফুল পেজ ইমেজ) --- */
 .hero-section {
-    /* হিরো ইমেজের নতুন নাম ব্যবহার করা হয়েছে */
+    /* ✨ ইমেজ ফাইলের নাম: 'Resigon_Hero.jpg' ✨ */
     background-image: url('Resigon_Hero.jpg'); 
     background-size: cover;
     background-position: center;
@@ -36,13 +36,13 @@ body {
     z-index: -1;
 }
 
-/* --- Header --- */
+/* --- Header (ফিক্সড) --- */
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     padding: 20px 5%;
-    color: #fff; /* White text */
+    color: #fff;
     z-index: 10;
     width: 100%;
 }
@@ -50,14 +50,17 @@ body {
 .logo-container {
     display: flex;
     align-items: center;
-    flex-grow: 1; 
-    justify-content: center; /* Center the logo text on mobile */
+    flex-grow: 0; 
+    /* মোবাইল ভিউতে লোগোকে মাঝখানে আনার ফিক্স */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* লোগো আইকনের (PNG) নির্দিষ্ট সাইজ */
 .logo-icon {
-    width: 50px; /* 50px width */
-    height: 50px; /* 50px height */
+    width: 50px; 
+    height: 50px; 
     margin-right: 10px;
 }
 
@@ -67,7 +70,7 @@ body {
     letter-spacing: 2px;
 }
 
-/* হ্যামবার্গার বাটন (মোবাইলে) */
+/* হ্যামবার্গার বাটন (ডান পাশে থাকবে) */
 .menu-toggle {
     background: none;
     border: none;
@@ -75,6 +78,7 @@ body {
     font-size: 24px;
     cursor: pointer;
     z-index: 15;
+    order: 3; /* মেনু টগলকে ডানে রাখার জন্য */
 }
 
 /* --- Hero Content (CTA) --- */
@@ -103,7 +107,7 @@ body {
 }
 
 .cta-button {
-    background-color: #ff5722; /* Bright Orange */
+    background-color: #ff5722;
     color: #fff;
     text-decoration: none;
     padding: 15px 30px;
@@ -138,7 +142,7 @@ body {
 }
 
 .footer-links a:hover, .social-links a:hover {
-    color: #ff5722; /* Hover effect with your primary brand color */
+    color: #ff5722;
 }
 
 .social-links {
@@ -151,25 +155,28 @@ body {
     font-size: 0.9em;
 }
 
-/* --- Media Query for Desktop (Responsive) --- */
+/* --- Media Query for Desktop (Header Fixed) --- */
 @media (min-width: 768px) {
-    /* Header: ডেস্কটপে মেনু আইকন লুকানো থাকবে, মেনু বার দেখা যাবে */
+    /* Header: বামে আইকন, মাঝে লেখা, ডানে মেনু */
     .header {
         justify-content: space-between;
     }
 
+    /* লোগো কন্টেইনারকে বাম দিকে নিয়ে আসা */
     .logo-container {
-        /* লোগো বাম দিকে চলে আসবে */
-        justify-content: flex-start;
         flex-grow: 0; 
+        position: static;
+        transform: none;
+        order: 1; 
     }
-    
+
     .menu-toggle {
-        display: none; /* হ্যামবার্গার বাটন লুকানো */
+        display: none; 
     }
 
     .nav-menu {
-        display: block; /* মেনু বার দেখানো */
+        display: block; 
+        order: 3; 
     }
 
     .nav-menu ul {
@@ -193,21 +200,37 @@ body {
 
 /* --- Mobile Menu Overlay CSS (for JS functionality) --- */
 @media (max-width: 767px) {
+    .header {
+        position: relative;
+        justify-content: flex-start;
+    }
+
+    .logo-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-grow: 0;
+    }
+    
+    .menu-toggle {
+        margin-left: auto; 
+    }
+    
     .nav-menu {
-        position: fixed; /* Use fixed for full viewport */
+        position: fixed; 
         top: 0;
         right: 0;
         width: 70%; 
         height: 100vh;
         background-color: rgba(34, 34, 34, 0.95); 
-        transform: translateX(100%); /* Hide menu to the right */
+        transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         padding-top: 80px;
         z-index: 9;
     }
 
     .nav-menu.active {
-        transform: translateX(0); /* Show menu */
+        transform: translateX(0);
     }
 
     .nav-menu ul {
@@ -226,10 +249,5 @@ body {
         padding: 10px 0;
         display: block;
         color: #fff;
-    }
-
-    .logo-container {
-        /* Align logo left when menu toggle is present */
-        justify-content: flex-start;
     }
 }
