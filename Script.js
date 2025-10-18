@@ -1,21 +1,21 @@
-// Hamburger Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    // Select the necessary elements 
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-});
-
-// Smooth Scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
+    // Add click event listener to the hamburger button
+    menuToggle.addEventListener('click', () => {
+        // Toggle the 'active' class on the navigation menu
+        navMenu.classList.toggle('active');
+        
+        // Optional: Toggle the icon between bars (☰) and times (X)
+        const icon = menuToggle.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
 });
