@@ -19,3 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/* 🌟 Sticky Header Logic 🌟 */
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    
+    // যখন স্ক্রল টপ 0 এর বেশি হবে, তখন 'sticky' ক্লাস যোগ হবে।
+    if (window.scrollY > 0) {
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+});
