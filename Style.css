@@ -14,7 +14,7 @@ body {
 /* --- Hero Section (ফুল পেজ ইমেজ) --- */
 .hero-section {
     /* হিরো ইমেজের নতুন নাম ব্যবহার করা হয়েছে */
-    background-image: url('Restigon_Hero.jpg'); 
+    background-image: url('Resigon_Hero.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 100vh; /* ফুল-পেজ হাইট */
