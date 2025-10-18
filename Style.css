@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+/* 🌟 Smooth Scroll 🌟 */
+html {
+    scroll-behavior: smooth; 
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #333;
@@ -13,11 +18,11 @@ body {
 
 /* --- Hero Section (ফুল পেজ ইমেজ) --- */
 .hero-section {
-    /* ✨ ইমেজ ফাইলের নাম: 'Resigon_Hero.jpg' ✨ */
+    /* ✨ ইমেজ ফাইলের নাম: 'Resigon_Hero.jpg' নিশ্চিত করা হয়েছে ✨ */
     background-image: url('Resigon_Hero.jpg'); 
     background-size: cover;
     background-position: center;
-    min-height: 100vh; /* ফুল-পেজ হাইট */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     position: relative;
@@ -32,7 +37,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* 50% opacity black overlay */
+    background: rgba(0, 0, 0, 0.5); 
     z-index: -1;
 }
 
@@ -45,7 +50,18 @@ body {
     color: #fff;
     z-index: 10;
     width: 100%;
+    /* ট্রানজিশন যোগ করা হয়েছে */
+    transition: background-color 0.3s ease; 
 }
+
+/* 🌟 Sticky Header Styles 🌟 */
+.header.sticky {
+    position: fixed;
+    top: 0;
+    background-color: rgba(34, 34, 34, 0.95); /* সেমি-ট্রান্সপারেন্ট কালো ব্যাকগ্রাউন্ড */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
 
 .logo-container {
     display: flex;
@@ -78,7 +94,7 @@ body {
     font-size: 24px;
     cursor: pointer;
     z-index: 15;
-    order: 3; /* মেনু টগলকে ডানে রাখার জন্য */
+    order: 3; 
 }
 
 /* --- Hero Content (CTA) --- */
@@ -113,11 +129,13 @@ body {
     padding: 15px 30px;
     border-radius: 5px;
     font-weight: 700;
-    transition: background-color 0.3s;
+    /* ট্রানজিশন যোগ করা হয়েছে */
+    transition: background-color 0.3s ease, transform 0.2s; 
 }
 
 .cta-button:hover {
     background-color: #e64a19;
+    transform: translateY(-2px); /* হালকা উপরে ওঠানোর এফেক্ট */
 }
 
 /* --- Main Content Placeholder --- */
