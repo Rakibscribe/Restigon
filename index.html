@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Restigon — Trust the Fix</title>
+  <meta name="description" content="Restigon — Fuel pump & injector testing. Over 30 years experience." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Restigon-icon.png" type="image/png" />
+  <!-- Font Awesome for social icons (optional) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <a href="/" class="brand" aria-label="Restigon home">
+        <img src="Restigon-icon.png" alt="Restigon logo" class="logo">
+      </a>
+    </div>
+
+    <div class="header-center" role="search">
+      <form class="search-form" onsubmit="return false;">
+        <input type="search" placeholder="Search services, parts..." aria-label="Search" id="searchInput">
+        <button type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+    <div class="header-right">
+      <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <!-- MOBILE SIDE MENU -->
+  <nav id="sideMenu" class="side-menu" aria-hidden="true">
+    <div class="side-top">
+      <a href="/" class="side-brand"><img src="Restigon-icon.png" alt="Restigon" class="side-logo"></a>
+      <button id="closeMenu" class="close-btn" aria-label="Close menu">✕</button>
+    </div>
+
+    <ul class="side-links">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#services" onclick="closeMenu()">Services</a></li>
+      <li><a href="#products" onclick="closeMenu()">Products</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+
+    <div class="side-social">
+      <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+      <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+    </div>
+  </nav>
+
+  <!-- HERO / COVER -->
+  <main id="home" class="hero" role="main">
+    <div class="hero-overlay">
+      <h1>Restigon-Trust the fix</h1>
+      <p class="lead">Over 30 years of trusted expertise in fuel pump & injector testing</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn primary">Our Services</a>
+        <a href="#contact" class="btn ghost">Contact Us</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Meet our MD — Md. Kashem Khan</h2>
+          <p>At <strong>Restigon</strong>, we combine over <strong>30 years of professional experience</strong> in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.</p>
+        </div>
+        <div class="about-image">
+          <img src="md-kashem-khan.webp" alt="MD Kashem Khan (placeholder)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="fuel-testing-1.webp" alt="Fuel Pump Testing">
+          <h3>Fuel Pump Testing</h3>
+          <p>Full bench test & flow analysis for all pump types.</p>
+        </article>
+        <article class="card">
+          <img src="fuel-testing-2.webp" alt="Injector Testing">
+          <h3>Injector Testing & Cleaning</h3>
+          <p>Precise atomization check & ultrasonic cleaning options.</p>
+        </article>
+        <article class="card">
+          <img src="fuel-testing-3.webp" alt="Calibration">
+          <h3>Calibration & Repair</h3>
+          <p>Calibration, repair & component replacement with warranty.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section id="contact" class="section contact">
+    <div class="container contact-card">
+      <h2>Contact Us</h2>
+      <p>Book a test or get a quotation. Call or message us on social media.</p>
+      <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry&body=Hello%20Restigon%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.%0A%0ARegards%2C%0A"
+   class="btn primary">Email Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-left">
+        <img src="Restigon-icon.png" alt="Restigon" class="f-logo">
+        <p>© 2025 Restigon. All rights reserved.</p>
+      </div>
+      <div class="footer-center">
+        <nav class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-right">
+        <div class="social">
+          <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+          <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    function openMenu() {
+      sideMenu.classList.add('open');
+      sideMenu.setAttribute('aria-hidden', 'false');
+    }
+    function closeMenu() {
+      sideMenu.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
+    }
+
+    menuBtn && menuBtn.addEventListener('click', openMenu);
+    closeMenu && closeMenu.addEventListener('click', closeMenu);
+
+    // close on outside click (mobile)
+    document.addEventListener('click', (e) => {
+      if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // accessibility: close on Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
+
+</body>
+</html>
