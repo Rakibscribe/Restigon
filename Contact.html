@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Restigon | Trust the Fix</title>
+  <link rel="icon" href="Restigon-icon.svg" type="image/png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand:#A42B2F;
+      --brand-dark:#8B2325;
+      --bg:#0b0b0b;
+      --muted:#cfcfcf;
+      --max-w:1200px;
+      --container-pad:20px;
+      --radius:10px;
+    }
+
+    * {box-sizing:border-box;margin:0;padding:0}
+    html,body {height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
+
+    /* HEADER */
+    .site-header {
+      position:fixed;left:0;right:0;top:0;height:70px;
+      background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 24px;z-index:1200;backdrop-filter: blur(6px);
+    }
+    .header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
+    .logo {height:48px}
+
+    .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
+
+    /* HERO */
+    .hero {
+      position:relative;height:60vh;display:flex;align-items:center;justify-content:center;
+      background:url('contact-banner.webp') center/cover no-repeat;
+    }
+    .hero::before {content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);}
+    .hero-content {position:relative;z-index:2;text-align:center;max-width:800px;padding:20px}
+    .hero-content h1 {font-size:clamp(34px,6vw,64px);color:var(--brand);margin-bottom:12px}
+    .hero-content p {font-size:1.2rem;color:#ddd}
+
+    /* SECTION */
+    .section {padding:100px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
+    .container {max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
+    .section-title{text-align:center;font-size:1.8rem;margin-bottom:30px;color:var(--brand)}
+
+    /* CONTACT GRID */
+    .contact-grid {display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+    /* Contact Text */
+    .contact-info p {
+      font-size:1.15rem;line-height:1.8;color:#cfcfcf;margin-bottom:18px;text-align:justify;
+    }
+    .contact-info strong {color:var(--brand);}
+
+    /* FORM */
+    form {display:flex;flex-direction:column;gap:16px}
+    input, textarea {
+      width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;
+    }
+    input:focus, textarea:focus {outline:none;border-color:var(--brand);}
+    textarea {min-height:120px;resize:vertical;}
+    .btn {background:var(--brand);color:#fff;border:0;padding:12px 18px;border-radius:8px;cursor:pointer;font-weight:600;}
+    .btn:hover {background:var(--brand-dark);}
+
+    /* FOOTER */
+    .site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:50px}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .footer-left p{opacity:.9}
+    .footer-nav{display:flex;gap:12px;justify-content:center}
+    .footer-nav a{color:#cfcfcf;text-decoration:none}
+    .social a{color:#fff;margin-left:8px}
+    .f-logo{width:80px;height:auto}
+
+    @media(max-width:900px){
+      .footer-grid{grid-template-columns:1fr;text-align:center}
+    }
+
+    /* Floating Icons */
+    .floating-icons {
+      position: fixed; top: 80px; right: 10px; display: flex; flex-direction: column; gap: 10px;
+      max-height: calc(100vh - 100px); overflow-y: auto; z-index: 1000;
+    }
+    .floating-icons .icon img { width: 30px; height: 30px; transition: transform 0.2s; }
+    .floating-icons .icon img:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+<!-- Floating Icons -->
+<div class="floating-icons">
+  <a href="tel:+8801710974045" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a>
+  <a href="mailto:restigon@gmail.com" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
+  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-left">
+    <a href="index.html"><img src="Restigon-icon.png" alt="Restigon" class="logo"></a>
+  </div>
+  <div class="header-right">
+    <button class="hamburger" onclick="history.back()">←</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Contact Restigon</h1>
+    <p>We’re here to assist you — fast, professional, and reliable.</p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+
+    <div class="contact-grid">
+      <!-- Left: Text -->
+      <div class="contact-info">
+        <p><strong>Restigon</strong> understands that your vehicle is more than just transportation — it’s a symbol of trust and safety. Every fuel pump and injector test we perform is done with precision, using modern equipment and skilled technicians.</p>
+        <p>If you notice unusual engine noise, poor mileage, or performance drop — contact us today. We offer full fuel system testing, injector cleaning, and repair services.</p>
+        <p>আপনার গাড়ির ফুয়েল সিস্টেমে কোনো সমস্যা দেখা দিলে, আমাদের বিশেষজ্ঞ টিম সর্বদা প্রস্তুত সঠিক সমাধান দিতে — দ্রুত, নির্ভরযোগ্য ও পেশাদারভাবে।</p>
+        <p>📧 <strong>Email:</strong> <a href="mailto:restigon@gmail.com" style="color:#fff;">restigon@gmail.com</a><br>
+           📞 <strong>Phone:</strong> +8801710974045<br>
+           📍 <strong>Location:</strong>Dhaka Bangladesh</p>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form">
+        <form action="mailto:restigon@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="subject" placeholder="Subject">
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid container">
+    <div class="footer-left">
+      <img src="Restigon-icon.svg" alt="Restigon" class="f-logo">
+      <p>© 2025 Restigon. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right social">
+      <a href="https://facebook.com/restigonofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/restigonofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@restigonofficial" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://x.com/restigon" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://youtube.com/@restigon" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
