@@ -1,11 +1,47 @@
-// Scroll motion JS (smooth, bounded)
-window.addEventListener('scroll', () => {
-  const icons = document.querySelector('.floating-icons');
-  const scrollY = window.scrollY;
+// Floating Icons Drag-to-scroll
+const floatingIcons = document.querySelector('.floating-icons');
+let isDragging = false;
+let startY;
+let scrollTopStart;
 
-  const maxTranslate = window.innerHeight - icons.offsetHeight - 80; // header height
-  let translate = scrollY * 0.3;  // scroll speed multiplier
-  if (translate > maxTranslate) translate = maxTranslate;
-  
-  icons.style.transform = `translateY(${translate}px)`;
+floatingIcons.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  floatingIcons.classList.add('dragging');
+  startY = e.pageY - floatingIcons.offsetTop;
+  scrollTopStart = floatingIcons.scrollTop;
+});
+
+floatingIcons.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const y = e.pageY - floatingIcons.offsetTop;
+  const walk = (startY - y); // scroll distance
+  floatingIcons.scrollTop = scrollTopStart + walk;
+});
+
+floatingIcons.addEventListener('mouseup', () => {
+  isDragging = false;
+  floatingIcons.classList.remove('dragging');
+});
+
+floatingIcons.addEventListener('mouseleave', () => {
+  isDragging = false;
+  floatingIcons.classList.remove('dragging');
+});
+
+// Touch support for mobile
+floatingIcons.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  startY = e.touches[0].pageY - floatingIcons.offsetTop;
+  scrollTopStart = floatingIcons.scrollTop;
+});
+
+floatingIcons.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const y = e.touches[0].pageY - floatingIcons.offsetTop;
+  const walk = (startY - y);
+  floatingIcons.scrollTop = scrollTopStart + walk;
+});
+
+floatingIcons.addEventListener('touchend', () => {
+  isDragging = false;
 });
