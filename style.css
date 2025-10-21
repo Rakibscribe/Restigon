@@ -170,15 +170,21 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
    Floating Icons - Sticky Scroll
 =========================== */
 .floating-icons {
-  position: sticky;          /* scroll-এর সাথে move করবে কিন্তু উপরে fixed */
-  top: 80px;                 /* header নিচ থেকে শুরু */
-  right: 10px;               /* right alignment */
+  position: fixed;
+  top: 80px;
+  right: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-height: calc(100vh - 100px); /* viewport থেকে বেশি উপরে যাবে না */
-  overflow-y: auto;          /* icon scroll হলে clipping না হয় */
+  max-height: calc(100vh - 100px);
+  overflow-y: auto; /* scrollable if many icons */
   z-index: 1000;
+  scroll-behavior: smooth; /* smooth scroll for mouse wheel / keyboard */
+  cursor: grab; /* indicates draggable */
+}
+
+.floating-icons.dragging {
+  cursor: grabbing;
 }
 
 .floating-icons .icon img {
