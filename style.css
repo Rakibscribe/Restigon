@@ -166,21 +166,24 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
 .about-content ul li {
   margin-bottom: 8px;
 }
-/* Floating icons wrapper */
+/* ===========================
+   Floating Icons - Sticky Scroll
+=========================== */
 .floating-icons {
-  position: absolute;      /* scroll এর সাথে move করবে */
-  top: 80px;               /* header নিচ থেকে শুরু */
+  position: sticky;          /* scroll-এর সাথে move করবে কিন্তু উপরে fixed */
+  top: 80px;                 /* header নিচ থেকে শুরু */
+  right: 10px;               /* right alignment */
   display: flex;
   flex-direction: column;
   gap: 10px;
-  right: 0;                /* container এর ভিতরে aligned হবে */
-  padding-right: 10px;     /* main content এর সাথে gap */
+  max-height: calc(100vh - 100px); /* viewport থেকে বেশি উপরে যাবে না */
+  overflow-y: auto;          /* icon scroll হলে clipping না হয় */
+  z-index: 1000;
 }
 
-/* icon styling */
 .floating-icons .icon img {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   transition: transform 0.2s;
 }
 
@@ -191,12 +194,13 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
 /* Mobile responsive */
 @media(max-width:768px){
   .floating-icons {
-    top: 70px;             /* mobile header height অনুযায়ী */
-    gap: 6px;
-    padding-right: 8px;
+    top: 70px;
+    right: 8px;
+    gap: 8px;
+    max-height: calc(100vh - 90px);
   }
   .floating-icons .icon img {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 }
