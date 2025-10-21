@@ -7,26 +7,10 @@
   <meta name="description" content="Restigon — Fuel pump & injector testing. Over 30 years experience." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="Restigon-icon.svg" type="image/png" />
-  <!-- Font Awesome for social icons (optional) -->
+  <!-- Font Awesome for social icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 </head>
-<!-- Floating Icons -->
-<div class="floating-icons">
-  <a href="tel:+8801710974045" class="icon call" title="Call Us">
-    <img src="call-icon.svg" alt="Call">
-  </a>
-  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location">
-    <img src="location-icon.svg" alt="Location">
-  </a>
-  <a href="mailto:restigon@gmail.com" class="icon mail" title="Email Us">
-    <img src="mail-icon.svg" alt="Email">
-  </a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share">
-    <img src="share-icon.svg" alt="Share">
-  </a>
-</div>
-<script src="script.js"></script>
-</body>
+<body>
 
   <!-- HEADER -->
   <header class="site-header" role="banner">
@@ -47,6 +31,22 @@
       <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
     </div>
   </header>
+
+  <!-- Floating Icons -->
+  <div class="floating-icons">
+    <a href="tel:+8801710974045" class="icon call" title="Call Us">
+      <img src="call-icon.svg" alt="Call">
+    </a>
+    <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location">
+      <img src="location-icon.svg" alt="Location">
+    </a>
+    <a href="mailto:restigon@gmail.com" class="icon mail" title="Email Us">
+      <img src="mail-icon.svg" alt="Email">
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share">
+      <img src="share-icon.svg" alt="Share">
+    </a>
+  </div>
 
   <!-- MOBILE SIDE MENU -->
   <nav id="sideMenu" class="side-menu" aria-hidden="true">
@@ -75,7 +75,7 @@
   <!-- HERO / COVER -->
   <main id="home" class="hero" role="main">
     <div class="hero-overlay">
-      <h1>Restigon-Trust the fix</h1>
+      <h1>Restigon — Trust the Fix</h1>
       <p class="lead">Over 30 years of trusted expertise in fuel pump & injector testing</p>
       <div class="hero-cta">
         <a href="#services" class="btn primary">Our Services</a>
@@ -93,7 +93,7 @@
           <p>At <strong>Restigon</strong>, we combine over <strong>30 years of professional experience</strong> in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.</p>
         </div>
         <div class="about-image">
-          <img src="md-kashem-khan.webp" alt="MD Kashem Khan (placeholder)">
+          <img src="md-kashem-khan.webp" alt="MD Kashem Khan">
         </div>
       </div>
     </div>
@@ -164,7 +164,7 @@
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
-    const closeMenu = document.getElementById('closeMenu');
+    const closeMenuBtn = document.getElementById('closeMenu');
 
     function openMenu() {
       sideMenu.classList.add('open');
@@ -176,7 +176,7 @@
     }
 
     menuBtn && menuBtn.addEventListener('click', openMenu);
-    closeMenu && closeMenu.addEventListener('click', closeMenu);
+    closeMenuBtn && closeMenuBtn.addEventListener('click', closeMenu);
 
     // close on outside click (mobile)
     document.addEventListener('click', (e) => {
