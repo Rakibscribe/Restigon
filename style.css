@@ -189,17 +189,10 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
 .floating-icons .icon img:hover {
   transform: scale(1.1);
 }
-}
-
-.floating-icons .icon img:hover {
-  transform: scale(1.1);
-}
 
 /* Responsive (Optional) */
 @media(max-width: 768px){
   .floating-icons {
-    bottom: 15px;
-    right: 15px;
     gap: 12px;
   }
   .floating-icons .icon img {
@@ -207,4 +200,3 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
     height: 40px;
   }
 }
-
