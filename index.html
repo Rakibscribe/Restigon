@@ -2,35 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Restigon — Trust the Fix</title>
-  <meta name="description" content="Restigon — Fuel pump & injector testing. Over 30 years experience." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="Restigon-icon.svg" type="image/png" />
-  <!-- Font Awesome for social icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Floating Icons - Sticky Right Side */
+    .floating-icons {
+      position: fixed;          /* সব সময় fixed */
+      top: 80px;                /* header নিচ থেকে start */
+      right: 10px;              /* right side alignment */
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: calc(100vh - 100px); /* viewport থেকে বেশি উপরে যাবে না */
+      overflow-y: auto;         /* icon scroll হলে clipping না হয় */
+      z-index: 1000;
+    }
+
+    .floating-icons .icon img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.2s;
+    }
+
+    .floating-icons .icon img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Mobile responsive */
+    @media(max-width:768px){
+      .floating-icons {
+        top: 70px;
+        right: 8px;
+        gap: 8px;
+        max-height: calc(100vh - 90px);
+      }
+      .floating-icons .icon img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="header-left">
-      <a href="/" class="brand" aria-label="Restigon home">
-        <img src="Restigon-icon.png" alt="Restigon logo" class="logo">
-      </a>
-    </div>
-
-    <div class="header-center" role="search">
-      <form class="search-form" onsubmit="return false;">
-        <input type="search" placeholder="Search services, parts..." aria-label="Search" id="searchInput">
-        <button type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-
-    <div class="header-right">
-      <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
-    </div>
-  </header>
 
   <!-- Floating Icons -->
   <div class="floating-icons">
@@ -48,13 +64,30 @@
     </a>
   </div>
 
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <a href="/" class="brand" aria-label="Restigon home">
+        <img src="Restigon-icon.png" alt="Restigon logo" class="logo">
+      </a>
+    </div>
+    <div class="header-center" role="search">
+      <form class="search-form" onsubmit="return false;">
+        <input type="search" placeholder="Search services, parts..." aria-label="Search" id="searchInput">
+        <button type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <div class="header-right">
+      <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
   <!-- MOBILE SIDE MENU -->
   <nav id="sideMenu" class="side-menu" aria-hidden="true">
     <div class="side-top">
       <a href="/" class="side-brand"><img src="Restigon-icon.png" alt="Restigon" class="side-logo"></a>
       <button id="closeMenu" class="close-btn" aria-label="Close menu">✕</button>
     </div>
-
     <ul class="side-links">
       <li><a href="#home" onclick="closeMenu()">Home</a></li>
       <li><a href="#about" onclick="closeMenu()">About</a></li>
@@ -62,7 +95,6 @@
       <li><a href="#products" onclick="closeMenu()">Products</a></li>
       <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
-
     <div class="side-social">
       <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
@@ -128,8 +160,7 @@
     <div class="container contact-card">
       <h2>Contact Us</h2>
       <p>Book a test or get a quotation. Call or message us on social media.</p>
-      <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry&body=Hello%20Restigon%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.%0A%0ARegards%2C%0A"
-   class="btn primary">Email Us</a>
+      <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry&body=Hello%20Restigon" class="btn primary">Email Us</a>
     </div>
   </section>
 
@@ -160,7 +191,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- JS -->
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
@@ -170,6 +201,7 @@
       sideMenu.classList.add('open');
       sideMenu.setAttribute('aria-hidden', 'false');
     }
+
     function closeMenu() {
       sideMenu.classList.remove('open');
       sideMenu.setAttribute('aria-hidden', 'true');
@@ -178,7 +210,7 @@
     menuBtn && menuBtn.addEventListener('click', openMenu);
     closeMenuBtn && closeMenuBtn.addEventListener('click', closeMenu);
 
-    // close on outside click (mobile)
+    // close on outside click
     document.addEventListener('click', (e) => {
       if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
         closeMenu();
