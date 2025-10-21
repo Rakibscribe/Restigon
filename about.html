@@ -73,7 +73,25 @@
     .section{padding:80px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
     .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
     .section-title{text-align:center;margin-bottom:28px;font-size:1.6rem;color:var(--brand)}
-    .about-grid{display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:center}
+    .about-grid{display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:start}
+
+    /* About section full-width text */
+    .about-text {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 100%;
+    }
+    .about-text p,
+    .about-text strong,
+    .about-text em {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        text-align: justify;
+        color: #cfcfcf;
+        margin-bottom: 16px;
+    }
+
+    /* About image */
     .about-image img{width:220px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 
     /* CONTACT CTA */
@@ -106,6 +124,9 @@
       .search-form input{min-width:90px; padding:6px}
       .hamburger{font-size:20px}
       .hero-overlay h1{font-size:28px}
+      .about-text p,
+      .about-text strong,
+      .about-text em { font-size:1rem; }
     }
 
     /* Floating Icons - Sticky Right Side */
@@ -177,11 +198,8 @@
 
 <!-- ABOUT -->
 <section id="about" class="section about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>About Restigon</h2>
-        <div class="container" style="margin-top:20px; color:#cfcfcf;">
+  <div class="container about-text">
+    <h2>About Restigon</h2>
     <strong>Restigon</strong> একটি পেশাদার ফুয়েল পাম্প ও ইনজেক্টর সার্ভিস প্রতিষ্ঠান। আধুনিক প্রযুক্তি এবং দীর্ঘদিনের অভিজ্ঞতার সমন্বয়ে আমরা গাড়ির ইঞ্জিন পারফরম্যান্স সর্বোচ্চ পর্যায়ে নিয়ে আসার প্রতিশ্রুতি দিই।
     <p>আমাদের টিমের সদস্যরা পূর্বে বিভিন্ন স্বনামধন্য ওয়ার্কশপে বহু বছরের অভিজ্ঞতা অর্জন করেছেন এবং সেই দক্ষতাকে আমরা এখন Restigon-এর মাধ্যমে আধুনিকভাবে প্রয়োগ করছি।</p>
     <p><em>"Trust the Fix"</em> — এটি আমাদের প্রতিশ্রুতি। প্রতিটি কাজ আমরা করি নির্ভুলতা, আস্থা এবং পেশাদারিত্বের সাথে।</p>
@@ -190,9 +208,6 @@
     <p><strong>Restigon</strong> is a professional fuel pump and injector service provider. Our goal is to combine modern technology with years of experience to maximize your engine’s performance.</p>
     <p>Our experts have long experience in renowned workshops, and now we apply that knowledge through Restigon — built on trust and precision.</p>
     <p><em>"Trust the Fix"</em> — not just a tagline, it’s our promise of quality and professionalism.</p>
-        </div>
-      <div class="about-image">
-    </div>
   </div>
 </section>
 
@@ -258,6 +273,3 @@
 
 </body>
 </html>
-
-
-
