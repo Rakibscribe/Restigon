@@ -4,93 +4,180 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Restigon</title>
+  <link rel="icon" href="Restigon-icon.svg" type="image/png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ছোট ব্যানারের জন্য অতিরিক্ত CSS */
+    .about-hero {
+      position: relative;
+      height: 400px;
+      background: url('about-banner.webp') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    .about-hero h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 48px;
+      color: var(--brand);
+      text-shadow: 0 8px 30px rgba(0,0,0,.6);
+    }
+
+    .about-content {
+      background:#000;
+      padding:80px 20px;
+      color:#fff;
+      text-align:left;
+      line-height:1.7;
+    }
+    .about-content h2 {
+      color:var(--brand);
+      margin-bottom:18px;
+    }
+    .about-content p {
+      margin-bottom:14px;
+      color:#d4d4d4;
+    }
+    .about-content ul {
+      margin:12px 0 0 18px;
+    }
+    .about-content li {
+      margin-bottom:8px;
+    }
+  </style>
 </head>
-<body class="about-page">
+<body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <img src="Restigon-icon.png" alt="Restigon Logo">
-      <h1>Restigon</h1>
+<!-- Floating Icons -->
+<div class="floating-icons">
+  <a href="tel:+8801710974045" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a>
+  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
+  <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry&body=Hello%20Restigon,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.%0A%0ARegards%2C%0A" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+  <div class="header-left">
+    <a href="index.html" class="brand" aria-label="Restigon home"><img src="Restigon-icon.png" alt="Restigon logo" class="logo"></a>
+  </div>
+  <div class="header-center" role="search">
+    <form class="search-form" onsubmit="return false;">
+      <input type="search" placeholder="Search services..." aria-label="Search" id="searchInput">
+      <button type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="header-right">
+    <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<nav id="sideMenu" class="side-menu" aria-hidden="true">
+  <div class="side-top">
+    <a href="index.html" class="side-brand"><img src="Restigon-icon.png" alt="Restigon" class="side-logo"></a>
+    <button id="closeMenu" class="close-btn" aria-label="Close menu">✕</button>
+  </div>
+  <ul class="side-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+  <h1>About Restigon</h1>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-content">
+  <div class="container">
+    <h2>আমাদের সম্পর্কে</h2>
+    <p>
+      <strong>Restigon</strong> একটি পেশাদার ফুয়েল পাম্প ও ইনজেক্টর সার্ভিস প্রতিষ্ঠান। 
+      আধুনিক প্রযুক্তি এবং দীর্ঘদিনের অভিজ্ঞতার সমন্বয়ে আমরা গাড়ির ইঞ্জিন পারফরম্যান্স 
+      সর্বোচ্চ পর্যায়ে নিয়ে আসার প্রতিশ্রুতি দিই।
+    </p>
+
+    <p>
+      আমাদের টিমের সদস্যরা পূর্বে বিভিন্ন স্বনামধন্য ওয়ার্কশপে বহু বছরের অভিজ্ঞতা অর্জন করেছেন 
+      এবং সেই দক্ষতাকে আমরা এখন Restigon-এর মাধ্যমে আধুনিকভাবে প্রয়োগ করছি।
+    </p>
+
+    <p><em>"Trust the Fix"</em> — এটি আমাদের প্রতিশ্রুতি। 
+      প্রতিটি কাজ আমরা করি নির্ভুলতা, আস্থা এবং পেশাদারিত্বের সাথে।
+    </p>
+
+    <h2>About Restigon (English)</h2>
+    <p>
+      <strong>Restigon</strong> is a professional fuel pump and injector service provider.  
+      Our goal is to combine modern technology with years of experience to maximize your engine’s performance.
+    </p>
+    <p>
+      Our experts have long experience in renowned workshops, and now we apply that knowledge 
+      through Restigon — built on trust and precision.
+    </p>
+    <p>
+      <em>"Trust the Fix"</em> — not just a tagline, it’s our promise of quality and professionalism.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-left">
+      <img src="Restigon-icon.svg" alt="Restigon" class="f-logo">
+      <p>© 2025 Restigon. All rights reserved.</p>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Banner -->
-  <section class="about-banner">
-    <img src="images/about-banner.jpg" alt="About Restigon">
-    <h2>About Restigon</h2>
-  </section>
-
-  <!-- About Content -->
-  <section class="about-content">
-    <div class="container">
-      <h2>আমাদের সম্পর্কে</h2>
-      <p>
-        <strong>Restigon</strong> একটি পেশাদার ফুয়েল পাম্প ও ইনজেক্টর সার্ভিস প্রতিষ্ঠান। 
-        আমাদের মূল লক্ষ্য হলো আধুনিক প্রযুক্তি ও দীর্ঘদিনের অভিজ্ঞতার সমন্বয়ে 
-        আপনার গাড়ির ইঞ্জিন পারফরম্যান্সকে সর্বোচ্চ পর্যায়ে নিয়ে আসা।
-      </p>
-
-      <p>
-        আমাদের টিমের সদস্যরা পূর্বে বিভিন্ন পরিচিত সার্ভিস ওয়ার্কশপে বহু বছর ধরে কাজের অভিজ্ঞতা অর্জন করেছেন, 
-        এবং সেই অভিজ্ঞতাকে আমরা এখন Restigon-এর মাধ্যমে নতুনভাবে প্রয়োগ করছি।
-      </p>
-
-      <p>
-        <em>"Trust the Fix"</em> — আমাদের ট্যাগলাইন শুধুমাত্র একটি কথা নয়, এটি আমাদের প্রতিশ্রুতি। 
-        প্রতিটি কাজ আমরা করি নির্ভুলতা, আস্থা এবং পেশাদারিত্বের সঙ্গে।
-      </p>
-
-      <h3>আমাদের সেবা ক্ষেত্র</h3>
-      <ul>
-        <li>ফুয়েল পাম্প টেস্টিং ও রিপেয়ার</li>
-        <li>ইনজেক্টর সার্ভিসিং</li>
-        <li>পারফরম্যান্স চেক ও ডেলিভারি</li>
-        <li>ইঞ্জিন পরামর্শ ও টেকনিক্যাল সাপোর্ট</li>
-      </ul>
-
-      <hr>
-
-      <h2>About Restigon (English)</h2>
-      <p>
-        <strong>Restigon</strong> is a professional fuel pump and injector service provider.  
-        Our goal is to combine modern technology with years of experience to maximize your engine’s performance.
-      </p>
-
-      <p>
-        Our experts have long experience in well-known service workshops, and now we are applying that knowledge 
-        through Restigon — a new name built on trust and precision.
-      </p>
-
-      <p>
-        <em>"Trust the Fix"</em> is not just a tagline — it’s our commitment to quality, reliability, and professionalism.
-      </p>
-
-      <h3>Our Services</h3>
-      <ul>
-        <li>Fuel Pump Testing & Repair</li>
-        <li>Injector Servicing</li>
-        <li>Performance Check & Delivery</li>
-        <li>Engine Advice & Technical Support</li>
-      </ul>
+    <div class="footer-center">
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-logo">
-      <img src="Restigon-icon.png" alt="Restigon Logo">
+    <div class="footer-right">
+      <div class="social">
+        <a href="https://facebook.com/restigonofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/restigonofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/restigon" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      </div>
     </div>
-    <p>© 2025 Restigon — Trust the Fix</p>
-  </footer>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const sideMenu = document.getElementById('sideMenu');
+  const closeMenuBtn = document.getElementById('closeMenu');
+
+  function openMenu() {
+    sideMenu.classList.add('open');
+    sideMenu.setAttribute('aria-hidden', 'false');
+  }
+  function closeMenu() {
+    sideMenu.classList.remove('open');
+    sideMenu.setAttribute('aria-hidden', 'true');
+  }
+  menuBtn && menuBtn.addEventListener('click', openMenu);
+  closeMenuBtn && closeMenuBtn.addEventListener('click', closeMenu);
+  document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+</script>
 
 </body>
 </html>
