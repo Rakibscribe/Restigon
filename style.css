@@ -170,19 +170,19 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
    Floating Icons - Restigon
 =========================== */
 .floating-icons {
-  position: fixed;  /* scroll এ fixed থাকবে */
-  top: 10px;        /* উপরের দিকে */
-  right: 10px;      /* ডানদিকে */
+  position: fixed;        /* সবসময় screen এ visible */
+  top: 70px;              /* header height অনুযায়ী নিচে */
+  right: 10px;            /* ডানদিকে */
   display: flex;
   flex-direction: column;
-  gap: 10px;        /* icon এর মধ্যে distance */
-  z-index: 9999;    /* সব content এর উপরে */
+  gap: 8px;               /* icon এর মধ্যে distance */
+  z-index: 9999;          /* সব content এর উপরে */
 }
 
 .floating-icons .icon img {
-  width: 60%;      /* মূল size থেকে 60% ছোট */
-  height: auto;    /* aspect ratio ঠিক রাখতে */
-  max-width: 40px; /* চাইলে max size fix করতে পারো */
+  width: 50%;             /* মূল size থেকে 50% ছোট */
+  max-width: 30px;        /* max size fix */
+  height: auto;           /* aspect ratio ঠিক রাখতে */
   transition: transform 0.2s;
 }
 
@@ -190,13 +190,13 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
   transform: scale(1.1);
 }
 
-/* Responsive (Optional) */
+/* Responsive */
 @media(max-width: 768px){
   .floating-icons {
-    gap: 12px;
+    gap: 10px;
   }
   .floating-icons .icon img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 }
