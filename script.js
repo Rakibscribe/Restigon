@@ -1,11 +1,7 @@
-// =========================
-// Floating Icons - Scroll Effect
-// =========================
-window.addEventListener('scroll', function() {
+// Scroll animation
+window.addEventListener('scroll', () => {
   const icons = document.querySelector('.floating-icons');
-  if(window.scrollY > 100){  // স্ক্রল 100px হলে slide-in
-    icons.classList.add('show');
-  } else {
-    icons.classList.remove('show');
-  }
+  const scrollY = window.scrollY;
+  // Scroll অনুযায়ী হালকা translate
+  icons.style.transform = `translateY(${scrollY * 0.3}px)`;
 });
