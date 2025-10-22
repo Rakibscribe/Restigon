@@ -16,12 +16,10 @@
       --container-pad:20px;
       --radius:10px;
     }
-
-    /* Reset */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
 
-    /* Header */
+    /* HEADER */
     .site-header{
       position:fixed;left:0;right:0;top:0;height:70px;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
       display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
@@ -38,7 +36,7 @@
     /* hamburger */
     .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
 
-    /* Side menu (mobile) */
+    /* Side menu */
     .side-menu{
       position:fixed;top:0;right:-100%;width:78%;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;
       display:flex;flex-direction:column;padding:18px;
@@ -94,11 +92,7 @@
     .footer-nav{display:flex;gap:12px;justify-content:center}
     .footer-nav a{color:#cfcfcf;text-decoration:none}
     .social a{color:#fff;margin-left:8px}
-    /* FOOTER - Logo size adjustment */
-       .site-footer .f-logo {
-         width: 80px;  /* লোগোর প্রস্থ 80 পিক্সেল করুন */
-         height: auto; /* উচ্চতা স্বয়ংক্রিয়ভাবে সেট হবে, অনুপাত ঠিক থাকবে */
-       }
+    .site-footer .f-logo { width: 80px; height: auto; }
 
     /* responsive */
     @media (max-width:900px){
@@ -110,7 +104,6 @@
       .footer-center{order:3}
       .footer-right{order:2;margin-top:12px}
     }
-
     @media (max-width:600px){
       .site-header{padding:10px}
       .logo{height:40px}
@@ -118,65 +111,31 @@
       .hamburger{font-size:20px}
       .hero-overlay h1{font-size:28px}
     }
-
-    /* ===========================
-       Floating Icons - Sticky Right Side
-    =========================== */
-    .floating-icons {
-      position: fixed;          
-      top: 80px;                
-      right: 10px;              
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-height: calc(100vh - 100px); 
-      overflow-y: auto;         
-      z-index: 1000;
-    }
-    .floating-icons .icon img {
-      width: 30px;
-      height: 30px;
-      transition: transform 0.2s;
-    }
-    .floating-icons .icon img:hover { transform: scale(1.1); }
-
-    @media(max-width:768px){
-      .floating-icons { top: 70px; right: 8px; gap: 8px; max-height: calc(100vh - 90px); }
-      .floating-icons .icon img { width: 20px; height: 20px; }
-    }
   </style>
 </head>
 <body>
 
-<!-- Floating Icons -->
-<div class="floating-icons">
-  <a href="tel:+8801710974045" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a>
-  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
-  <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry&body=Hello%20Restigon,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.%0A%0ARegards%2C%0A" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
-</div>
-
 <!-- HEADER -->
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="header-left">
-    <a href="/" class="brand" aria-label="Restigon home"><img src="Restigon-icon.png" alt="Restigon logo" class="logo"></a>
+    <a href="/" class="brand"><img src="Restigon-icon.png" alt="Restigon logo" class="logo"></a>
   </div>
-  <div class="header-center" role="search">
+  <div class="header-center">
     <form class="search-form" onsubmit="return false;">
-      <input type="search" placeholder="Search services, parts..." aria-label="Search" id="searchInput">
-      <button type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
+      <input type="search" placeholder="Search services, parts..." id="searchInput">
+      <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <div class="header-right">
-    <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
+    <button id="menuBtn" class="hamburger">☰</button>
   </div>
 </header>
 
-<!-- MOBILE SIDE MENU -->
+<!-- SIDE MENU -->
 <nav id="sideMenu" class="side-menu" aria-hidden="true">
   <div class="side-top">
     <a href="/" class="side-brand"><img src="Restigon-icon.png" alt="Restigon" class="side-logo"></a>
-    <button id="closeMenu" class="close-btn" aria-label="Close menu">✕</button>
+    <button id="closeMenu" class="close-btn">✕</button>
   </div>
   <ul class="side-links">
     <li><a href="index.html" onclick="closeMenu()">Home</a></li>
@@ -186,19 +145,19 @@
     <li><a href="Contact.html" onclick="closeMenu()">Contact</a></li>
   </ul>
   <div class="side-social">
-    <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-    <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
   </div>
 </nav>
 
-<!-- HERO / COVER -->
-<main id="home" class="hero" role="main">
+<!-- HERO -->
+<main class="hero">
   <div class="hero-overlay">
-    <h1>Restigon — Trust the Fix</h1>
-    <p class="lead">Over 30 years of trusted expertise in fuel pump & injector testing</p>
+    <h1 id="hero-title">Restigon — Trust the Fix</h1>
+    <p id="hero-desc" class="lead">Over 30 years of trusted expertise in fuel pump & injector testing</p>
     <div class="hero-cta">
       <a href="#services" class="btn primary">Our Services</a>
       <a href="#contact" class="btn ghost">Contact Us</a>
@@ -211,8 +170,8 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <h2>Meet our MD — Md. Kashem Khan</h2>
-        <p>At <strong>Restigon</strong>, we combine over <strong>30 years of professional experience</strong> in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.</p>
+        <h2 id="about-title">Meet our MD — Md. Kashem Khan</h2>
+        <p id="about-desc">At <strong>Restigon</strong>, we combine over <strong>30 years of professional experience</strong> in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.</p>
       </div>
       <div class="about-image">
         <img src="md-kashem-khan.webp" alt="MD Kashem Khan">
@@ -224,23 +183,22 @@
 <!-- SERVICES -->
 <section id="services" class="section services">
   <div class="container">
-    <h2 class="section-title">Our Services</h2>
+    <h2 class="section-title" id="services-title">Our Services</h2>
     <div class="grid">
       <article class="card">
         <img src="fuel-testing-1.webp" alt="Fuel Pump Testing">
-        <h3>Fuel Pump Testing</h3>
-        <p>Full bench test & flow analysis for all pump types.</p>
+        <h3 id="service1-title">Fuel Pump Testing</h3>
+        <p id="service1-desc">Full bench test & flow analysis for all pump types.</p>
       </article>
-      <!-- SERVICES card continuation -->
       <article class="card">
         <img src="fuel-testing-2.webp" alt="Injector Testing">
-        <h3>Injector Testing & Cleaning</h3>
-        <p>Precise atomization check & ultrasonic cleaning options for all injector types to maintain performance and longevity.</p>
+        <h3 id="service2-title">Injector Testing & Cleaning</h3>
+        <p id="service2-desc">Precise atomization check & ultrasonic cleaning options for all injector types to maintain performance and longevity.</p>
       </article>
       <article class="card">
         <img src="fuel-testing-3.webp" alt="Calibration">
-        <h3>Calibration & Repair</h3>
-        <p>Calibration, repair & component replacement with warranty.</p>
+        <h3 id="service3-title">Calibration & Repair</h3>
+        <p id="service3-desc">Calibration, repair & component replacement with warranty.</p>
       </article>
     </div>
   </div>
@@ -249,23 +207,19 @@
 <!-- CONTACT CTA -->
 <section id="contact" class="section contact">
   <div class="container contact-card">
-    <h2>Contact Us</h2>
-    <p>Book a test or get a quotation. Call or message us on social media.</p>
-    <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry&body=Hello%20Restigon,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.%0A%0ARegards%2C%0A" class="btn primary">Email Us</a>
+    <h2 id="contact-title">Contact Us</h2>
+    <p id="contact-desc">Book a test or get a quotation. Call or message us on social media.</p>
+    <a href="mailto:restigon@gmail.com" class="btn primary">Email Us</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-grid">
-    
-    <!-- Left -->
     <div class="footer-left">
       <img src="Restigon-icon.svg" alt="Restigon" class="f-logo">
       <p id="footer-text">© 2025 Restigon. All rights reserved.</p>
     </div>
-
-    <!-- Center -->
     <div class="footer-center">
       <nav class="footer-nav">
         <a href="about.html">About</a>
@@ -274,18 +228,14 @@
         <a href="Contact.html">Contact</a>
       </nav>
     </div>
-
-    <!-- Right -->
     <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:10px;">
       <div class="social">
-        <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-        <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
       </div>
-      
-      <!-- Language Toggle Button -->
       <button id="lang-toggle" style="
         background-color: #A42B2F;
         color: #fff;
@@ -296,76 +246,74 @@
         font-size: 14px;
       ">বাংলা</button>
     </div>
-
   </div>
 </footer>
 
 <!-- JS -->
 <script>
-  // ========== SIDE MENU TOGGLE ==========
+  // SIDE MENU
   const menuBtn = document.getElementById('menuBtn');
   const sideMenu = document.getElementById('sideMenu');
   const closeMenuBtn = document.getElementById('closeMenu');
 
-  function openMenu() {
+  menuBtn.addEventListener('click', () => {
     sideMenu.classList.add('open');
-    sideMenu.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeMenu() {
+  });
+  closeMenuBtn.addEventListener('click', () => {
     sideMenu.classList.remove('open');
-    sideMenu.setAttribute('aria-hidden', 'true');
-  }
-
-  menuBtn && menuBtn.addEventListener('click', openMenu);
-  closeMenuBtn && closeMenuBtn.addEventListener('click', closeMenu);
-
-  // close on outside click
-  document.addEventListener('click', (e) => {
-    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-      closeMenu();
-    }
   });
+  function closeMenu(){ sideMenu.classList.remove('open'); }
 
-  // accessibility: close on Esc
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  // ========== LANGUAGE TOGGLE ==========
+  // LANGUAGE TOGGLE
   const translations = {
-    'bn': {
-      'footer-text': '© ২০২৫ Restigon. সকল অধিকার সংরক্ষিত।',
-      'hero-title': 'আমাদের সেবা / Our Services',
-      'hero-desc': 'আপনার গাড়ির ফুয়েল সিস্টেমের জন্য পেশাদার পরীক্ষা, ক্লিনিং ও মেরামত।'
-      // এখানে অন্যান্য element id + বাংলা text যোগ করুন
-    },
     'en': {
-      'footer-text': '© 2025 Restigon. All rights reserved.',
-      'hero-title': 'Our Services',
-      'hero-desc': 'Professional fuel system testing, cleaning, and repair for your vehicle.'
+      'hero-title':'Restigon — Trust the Fix',
+      'hero-desc':'Over 30 years of trusted expertise in fuel pump & injector testing',
+      'about-title':'Meet our MD — Md. Kashem Khan',
+      'about-desc':'At Restigon, we combine over 30 years of professional experience in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.',
+      'services-title':'Our Services',
+      'service1-title':'Fuel Pump Testing',
+      'service1-desc':'Full bench test & flow analysis for all pump types.',
+      'service2-title':'Injector Testing & Cleaning',
+      'service2-desc':'Precise atomization check & ultrasonic cleaning options for all injector types to maintain performance and longevity.',
+      'service3-title':'Calibration & Repair',
+      'service3-desc':'Calibration, repair & component replacement with warranty.',
+      'contact-title':'Contact Us',
+      'contact-desc':'Book a test or get a quotation. Call or message us on social media.',
+      'footer-text':'© 2025 Restigon. All rights reserved.',
+      'lang-btn-text':'বাংলা'
+    },
+    'bn': {
+      'hero-title':'রেস্টিগন — নির্ভরযোগ্য মেরামত',
+      'hero-desc':'আপনার গাড়ির ফুয়েল পাম্প ও ইনজেক্টর পরীক্ষার ৩০ বছরের অভিজ্ঞতা।',
+      'about-title':'আমাদের ব্যবস্থাপনা পরিচালক — মোঃ কাশেম খান',
+      'about-desc':'রেস্টিগনে, আমরা ফুয়েল পাম্প এবং ইনজেক্টর পরীক্ষায় ৩০ বছরের পেশাদার অভিজ্ঞতা একত্রিত করেছি। আমাদের বিশেষজ্ঞ এমডি কাশেম খানের নেতৃত্বে, আমাদের প্রযুক্তিবিদরা নিশ্চিত করেন প্রতিটি পরীক্ষায় নিখুঁততা, নির্ভরযোগ্যতা এবং অসাধারণ কার্যকারিতা।',
+      'services-title':'আমাদের সেবাসমূহ',
+      'service1-title':'ফুয়েল পাম্প পরীক্ষা',
+      'service1-desc':'সব ধরণের পাম্পের সম্পূর্ণ বেন্চ পরীক্ষা ও ফ্লো বিশ্লেষণ।',
+      'service2-title':'ইনজেক্টর পরীক্ষা ও পরিস্কার',
+      'service2-desc':'সঠিক atomization পরীক্ষা ও আল্ট্রাসনিক পরিস্কার সকল ইনজেক্টরের জন্য।',
+      'service3-title':'ক্যালিব্রেশন ও মেরামত',
+      'service3-desc':'ক্যালিব্রেশন, মেরামত ও অংশ প্রতিস্থাপন সহ ওয়ারেন্টি।',
+      'contact-title':'যোগাযোগ করুন',
+      'contact-desc':'পরীক্ষার বুকিং বা কোটেশন চাইলে কল করুন অথবা সোশ্যাল মিডিয়ায় ম্যাসেজ করুন।',
+      'footer-text':'© ২০২৫ রেস্টিগন। সকল অধিকার সংরক্ষিত।',
+      'lang-btn-text':'English'
     }
   };
 
   let currentLang = 'en';
   const langBtn = document.getElementById('lang-toggle');
 
-  langBtn && langBtn.addEventListener('click', () => {
+  langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'en' ? 'bn' : 'en';
-    langBtn.innerText = currentLang === 'en' ? 'বাংলা' : 'English';
-    for (let id in translations[currentLang]) {
+    langBtn.innerText = translations[currentLang]['lang-btn-text'];
+    Object.keys(translations[currentLang]).forEach(id => {
       const el = document.getElementById(id);
       if(el) el.innerText = translations[currentLang][id];
-    }
+    });
   });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
