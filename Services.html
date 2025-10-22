@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Restigon | Trust the Fix</title>
+  <link rel="icon" href="Restigon-icon.svg" type="image/png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand:#A42B2F;
+      --brand-dark:#8B2325;
+      --bg:#0b0b0b;
+      --muted:#cfcfcf;
+      --max-w:1200px;
+      --container-pad:20px;
+      --radius:10px;
+    }
+
+    * {box-sizing:border-box;margin:0;padding:0}
+    html,body {height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
+
+    /* HEADER */
+    .site-header {
+      position:fixed;left:0;right:0;top:0;height:70px;
+      background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 24px;z-index:1200;backdrop-filter: blur(6px);
+    }
+    .header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
+    .logo {height:48px}
+    .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
+
+    /* HERO */
+    .hero {
+      position:relative;height:60vh;display:flex;align-items:center;justify-content:center;
+      background:url('services-banner.webp') center/cover no-repeat;
+    }
+    .hero::before {content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);}
+    .hero-content {position:relative;z-index:2;text-align:center;max-width:800px;padding:20px}
+    .hero-content h1 {font-size:clamp(34px,6vw,64px);color:var(--brand);margin-bottom:12px}
+    .hero-content p {font-size:1.2rem;color:#ddd}
+
+    /* SECTION */
+    .section {padding:100px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
+    .container {max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
+    .section-title{text-align:center;font-size:1.8rem;margin-bottom:30px;color:var(--brand)}
+
+    /* SERVICES CONTENT */
+    .service-text p {font-size:1.15rem;line-height:1.8;color:#cfcfcf;margin-bottom:20px;text-align:justify;}
+    .service-text strong {color:var(--brand);}
+    .signature {margin-top:30px;font-style:italic;color:#fff;text-align:right;}
+
+    /* FOOTER */
+    .site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:50px}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .footer-left p{opacity:.9}
+    .footer-nav{display:flex;gap:12px;justify-content:center}
+    .footer-nav a{color:#cfcfcf;text-decoration:none}
+    .social a{color:#fff;margin-left:8px}
+    .f-logo{width:80px;height:auto}
+
+    @media(max-width:900px){
+      .footer-grid{grid-template-columns:1fr;text-align:center}
+    }
+
+    /* Floating Icons */
+    .floating-icons {
+      position: fixed; top: 80px; right: 10px; display: flex; flex-direction: column; gap: 10px;
+      max-height: calc(100vh - 100px); overflow-y: auto; z-index: 1000;
+    }
+    .floating-icons .icon img { width: 30px; height: 30px; transition: transform 0.2s; }
+    .floating-icons .icon img:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+<!-- Floating Icons -->
+<div class="floating-icons">
+  <a href="tel:+8801710974045" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a>
+  <a href="mailto:restigon@gmail.com" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
+  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-left">
+    <a href="index.html"><img src="Restigon-icon.png" alt="Restigon" class="logo"></a>
+  </div>
+  <div class="header-right">
+    <button class="hamburger" onclick="history.back()">←</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Our Services</h1>
+    <p>Expert fuel system testing and injector repair — পেশাদার ফুয়েল সিস্টেম পরীক্ষা এবং ইনজেক্টর মেরামত।</p>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="section">
+  <div class="container service-text">
+    <p>Restigon is a professional service center with over 30 years of experience in testing, cleaning, and repairing fuel pumps, diesel pumps, and injectors. We verify every pump and injector on a <strong>Pump Injection Test Bench</strong> to ensure proper oil delivery and identify any issues. <br>
+    Restigon একটি পেশাদার সার্ভিস কেন্দ্র যা ৩০ বছরেরও বেশি অভিজ্ঞতার সাথে ফুয়েল পাম্প, ডীজেল পাম্প এবং ইনজেক্টর টেস্টিং, ক্লিনিং ও মেরামত করে। আমরা প্রতিটি পাম্প ও ইনজেক্টরকে <strong>Pump Injection Test Bench</strong>-এ যাচাই করি, তেল ঠিকভাবে সরবরাহ হচ্ছে কিনা তা নিশ্চিত করি, এবং যেকোনো সমস্যা শনাক্ত করি।</p>
+
+    <p>Based on the type of problem, we provide detailed information to the customer about which parts are out of service and which need replacement. Necessary parts are replaced, pumps are cleaned, preserved with new diesel, and all components are reassembled correctly. All bolts are perfectly tightened and 100% diesel pressure is confirmed through retesting. <br>
+    সমস্যার প্রকৃতি অনুযায়ী গ্রাহককে বিস্তারিত তথ্য প্রদান করি যে কোন যন্ত্রাংশ সেবা আউট হয়েছে, কোন অংশ পরিবর্তন করতে হবে। আমরা প্রয়োজনীয় অংশ পরিবর্তন করি, পাম্প খুলে পরিষ্কার করি, নতুন ডীজেল দিয়ে সংরক্ষণ করি এবং সব অংশ পুনরায় সঠিকভাবে ফিট করি। সমস্ত নট-বল্ট নিখুঁতভাবে টাইট করা হয় এবং পুনঃপরীক্ষার মাধ্যমে 100% ডীজেল চাপ নিশ্চিত করা হয়।</p>
+
+    <p>It is important to note that we <strong>do not remove pumps or injectors directly from the car</strong> and <strong>do not dismantle the engine</strong>. Engine dismantling is the responsibility of general engine mechanics or repair shops in Bangladesh. Our work is limited to pump and nozzle inspection, cleaning, and repair. <br>
+    মনে রাখা জরুরি, আমরা <strong>গাড়ি থেকে সরাসরি pump বা injector সরিয়ে আনিনা</strong> এবং <strong>engine খুলে মেরামত করি না</strong>. engine dismantling বাংলাদেশের সাধারণ ইঞ্জিন মেকানিক বা repair shop-এর দায়িত্ব। আমাদের কাজ সীমিত থাকে pump এবং nozzle সম্পর্কিত পরীক্ষা, পরিষ্কার ও মেরামত পর্যন্ত।</p>
+
+    <p class="signature">Md. Kashem Khan — Managing Director, Restigon</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-left">
+      <img src="Restigon-icon.svg" alt="Restigon" class="f-logo">
+      <p>© 2025 Restigon. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Services.html">Services</a>
+        <a href="#products">Products</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right">
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
