@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Restigon</title>
+  <title>About Us — Restigon | Trust the Fix</title>
   <link rel="icon" href="Restigon-icon.svg" type="image/png" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
   <style>
     :root {
       --brand:#A42B2F;
@@ -17,86 +18,65 @@
       --radius:10px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    body {
-      background:#000; color:#fff; font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;
-    }
+    * {box-sizing:border-box;margin:0;padding:0}
+    html,body {height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
 
     /* HEADER */
     .site-header {
-      position:fixed;left:0;right:0;top:0;height:70px;background:rgba(0,0,0,0.6);
-      display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
-      backdrop-filter: blur(6px);
+      position:fixed;left:0;right:0;top:0;height:70px;
+      background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 24px;z-index:1200;backdrop-filter: blur(6px);
     }
-    .logo { height:48px; }
+    .header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
+    .logo {height:48px}
+    .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
 
-    .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
-
-    /* Side menu */
-    .side-menu {
-      position:fixed;top:0;right:-100%;width:78%;height:100%;background:#0e0e0e;color:#fff;z-index:1300;
-      transition:right .35s ease;padding:18px;display:flex;flex-direction:column;
-    }
-    .side-menu.open{right:0}
-    .side-links{list-style:none;display:flex;flex-direction:column;gap:14px}
-    .side-links a{color:#fff;text-decoration:none;font-size:18px}
-    .side-social{margin-top:auto;display:flex;gap:12px}
+    /* NAV */
+    .nav a { color:#fff; text-decoration:none; margin-left:20px; font-weight:600;}
+    .nav a.active { color:var(--brand); }
 
     /* HERO */
     .hero {
-      position:relative;height:60vh;display:flex;align-items:center;justify-content:center;
-      background:url('Bannar1920400.webp') center/cover no-repeat;
+      position:relative;height:50vh;display:flex;align-items:center;justify-content:center;
+      background:url('about-banner.webp') center/cover no-repeat;
     }
-    .hero::before {
-      content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);
-    }
-    .hero-content {
-      position:relative;text-align:center;z-index:2;max-width:900px;padding:20px;
-    }
-    .hero-content h1 {
-      font-size:clamp(34px,6vw,72px);color:var(--brand);margin-bottom:12px;
-      text-shadow:0 6px 20px rgba(0,0,0,.6);
-    }
+    .hero::before {content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);}
+    .hero-content {position:relative;z-index:2;text-align:center;max-width:800px;padding:20px}
+    .hero-content h1 {font-size:clamp(34px,6vw,64px);color:var(--brand);margin-bottom:12px}
+    .hero-content p {font-size:1.2rem;color:#ddd}
 
-    /* ABOUT SECTION */
-    .section {
-      padding:80px 20px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent);
-    }
-    .container { max-width:var(--max-w); margin:0 auto; }
-    .section-title { text-align:center; color:var(--brand); margin-bottom:28px; font-size:1.8rem; }
+    /* SECTION */
+    .section {padding:100px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
+    .container {max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
+    .section-title{text-align:center;font-size:1.8rem;margin-bottom:30px;color:var(--brand)}
 
-    .about-content p {
-      font-size:1.2rem; line-height:1.8; text-align:justify; color:#cfcfcf; margin-bottom:16px;
-    }
-    .about-content em { color:var(--brand); font-style:italic; }
+    /* ABOUT CONTENT */
+    .about-content {display:flex;flex-direction:column;gap:25px;}
+    .two-col {display:flex;flex-wrap:wrap;gap:24px;}
+    .col {flex:1 1 300px;}
+    .lead {font-size:1.15rem;color:#cfcfcf;}
+    .signature {margin-top:20px;font-weight:600;color:var(--brand);}
+    @media(max-width:900px){.two-col{flex-direction:column;}}
 
     /* FOOTER */
-    .site-footer {
-      background:#070707;color:#cfcfcf;padding:28px 0;margin-top:40px;
-    }
-    .footer-grid {
-      display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;
-      max-width:var(--max-w);margin:0 auto;padding:0 20px;
-    }
+    .site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:50px}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .footer-left p{opacity:.9}
     .footer-nav{display:flex;gap:12px;justify-content:center}
     .footer-nav a{color:#cfcfcf;text-decoration:none}
     .social a{color:#fff;margin-left:8px}
-    .f-logo{width:80px;height:auto;}
+    .f-logo{width:80px;height:auto}
 
-    @media(max-width:900px){
-      .footer-grid{grid-template-columns:1fr;text-align:center}
-    }
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr;text-align:center}}
 
     /* Floating Icons */
     .floating-icons {
-      position: fixed; top: 80px; right: 10px; display: flex; flex-direction: column; gap: 10px; z-index: 1000;
+      position: fixed; top: 80px; right: 10px; display: flex; flex-direction: column; gap: 10px;
+      max-height: calc(100vh - 100px); overflow-y: auto; z-index: 1000;
     }
     .floating-icons .icon img { width: 30px; height: 30px; transition: transform 0.2s; }
     .floating-icons .icon img:hover { transform: scale(1.1); }
-
-    @media(max-width:768px){
-      .floating-icons .icon img{width:22px;height:22px;}
-    }
   </style>
 </head>
 <body>
@@ -105,56 +85,61 @@
 <div class="floating-icons">
   <a href="tel:+8801710974045" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a>
   <a href="mailto:restigon@gmail.com" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
-  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Find Us"><img src="location-icon.svg" alt="Location"></a>
+  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
 </div>
 
 <!-- HEADER -->
 <header class="site-header">
-  <a href="index.html"><img src="Restigon-icon.png" alt="Restigon" class="logo"></a>
-  <button id="menuBtn" class="hamburger">☰</button>
-</header>
-
-<!-- SIDE MENU -->
-<nav id="sideMenu" class="side-menu">
-  <button id="closeMenu" class="hamburger" style="align-self:flex-end;">✕</button>
-  <ul class="side-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="side-social">
-    <a href="https://facebook.com/restigonofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/restigonofficial" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@restigonofficial" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <div class="header-left">
+    <a href="index.html"><img src="Restigon-icon.png" alt="Restigon" class="logo"></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
-</nav>
+  <div class="header-right">
+    <button class="hamburger" onclick="history.back()">←</button>
+  </div>
+</header>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>About Restigon</h1>
-    <p>Professional fuel pump & injector service center — Trusted for over 30 years.</p>
+    <p>Trusted Experts in Fuel Pump, Injector & Nozzle Testing</p>
   </div>
 </section>
 
 <!-- ABOUT SECTION -->
 <section class="section">
   <div class="container about-content">
-    <h2 class="section-title">About Restigon (বাংলা)</h2>
-    <p><strong>Restigon</strong> একটি পেশাদার ফুয়েল পাম্প ও ইনজেক্টর সার্ভিস প্রতিষ্ঠান। আমরা আধুনিক প্রযুক্তি এবং দীর্ঘদিনের অভিজ্ঞতার সমন্বয়ে গাড়ির ইঞ্জিন পারফরম্যান্স সর্বোচ্চ পর্যায়ে নিয়ে আসার প্রতিশ্রুতি দিই।</p>
-    <p>আমাদের টিমের সদস্যরা দেশে ফুয়েল সিস্টেম টেস্টিং ও রিপেয়ারিং-এ অভিজ্ঞ, এবং সেই দক্ষতাকে আমরা Restigon-এর মাধ্যমে নতুনভাবে উপস্থাপন করছি।</p>
-    <p><em>"Trust the Fix"</em> — এটি শুধু আমাদের ট্যাগলাইন নয়, বরং একটি প্রতিশ্রুতি; প্রতিটি কাজ আমরা করি আস্থা ও নিখুঁততার সাথে।</p>
+    <h2 class="section-title">About Us — আমাদের পরিচয়</h2>
 
-    <h2 class="section-title">About Restigon (English)</h2>
-    <p><strong>Restigon</strong> is a professional fuel pump and injector service company. We combine modern diagnostic technology with decades of technical experience to deliver the highest engine performance and reliability.</p>
-    <p>Our team has years of experienced, working with leading automotive workshops. That expertise is now reflected in every service we provide through Restigon.</p>
-    <p><em>"Trust the Fix"</em> — this is not just our tagline; it’s our promise to deliver precision, honesty, and professional excellence in every repair.</p>
+    <div class="two-col">
+      <div class="col">
+        <h3>বাংলা</h3>
+        <p>Restigon একটি পেশাদার সার্ভিস কেন্দ্র যা ৩০ বছরেরও বেশি অভিজ্ঞতার সাথে ফুয়েল পাম্প, ডীজেল পাম্প এবং ইনজেক্টর টেস্টিং, ক্লিনিং ও মেরামত করে। আমরা প্রতিটি পাম্প ও ইনজেক্টরকে <strong>Pump Injection Test Bench</strong>-এ যাচাই করি, তেল ঠিকভাবে সরবরাহ হচ্ছে কিনা তা নিশ্চিত করি, এবং যেকোনো সমস্যা শনাক্ত করি।</p>
+        <p>সমস্যার প্রকৃতি অনুযায়ী গ্রাহককে বিস্তারিত তথ্য প্রদান করি যে কোন যন্ত্রাংশ সেবা আউট হয়েছে, কোন অংশ পরিবর্তন করতে হবে। আমরা প্রয়োজনীয় অংশ পরিবর্তন করি, পাম্প খুলে পরিষ্কার করি, নতুন ডীজেল দিয়ে সংরক্ষণ করি এবং সব অংশ পুনরায় সঠিকভাবে ফিট করি। সমস্ত নট-বল্ট নিখুঁতভাবে টাইট করা হয় এবং পুনঃপরীক্ষার মাধ্যমে 100% ডীজেল চাপ নিশ্চিত করা হয়।</p>
+        <p>মনে রাখা জরুরি, আমরা <strong>গাড়ি থেকে সরাসরি pump বা injector সরিয়ে আনিনা</strong> এবং <strong>engine খুলে মেরামত করি না</strong>। engine dismantling বাংলাদেশের সাধারণ ইঞ্জিন মেকানিক বা repair shop-এর দায়িত্ব। আমাদের কাজ সীমিত থাকে pump এবং nozzle সম্পর্কিত পরীক্ষা, পরিষ্কার ও মেরামত পর্যন্ত।</p>
+        <p class="signature">Md. Kashem Khan — Managing Director, Restigon</p>
+      </div>
+
+      <div class="col">
+        <h3>English</h3>
+        <p>Restigon is a professional service center with over 30 years of experience in fuel pump, diesel pump, and injector testing, cleaning, and repair. Each pump and injector is verified on the <strong>Pump Injection Test Bench</strong> to ensure proper fuel delivery and any issues are carefully diagnosed.</p>
+        <p>Clients are provided with detailed information about which parts require servicing or replacement. Necessary parts are replaced, the pump is disassembled for thorough cleaning, preserved with fresh diesel, and all components are reassembled properly. Nuts and bolts are tightened to perfection, and the pump is retested to ensure 100% accurate fuel pressure.</p>
+        <p>It is important to note that we <strong>do not remove pumps or injectors directly from vehicles</strong> and we <strong>do not disassemble engines</strong>. Engine dismantling and repair is the responsibility of standard mechanics or repair shops in Bangladesh. Our work is limited to pump and nozzle testing, cleaning, and repair.</p>
+        <p class="signature">Md. Kashem Khan — Managing Director, Restigon</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="container footer-grid">
+  <div class="footer-grid container">
     <div class="footer-left">
       <img src="Restigon-icon.svg" alt="Restigon" class="f-logo">
       <p>© 2025 Restigon. All rights reserved.</p>
@@ -164,28 +149,18 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="service">service</a>
       </nav>
     </div>
-    <div class="footer-right">
-      <div class="social">
-        <a href="https://facebook.com/restigonofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com/restigonofficial" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://tiktok.com/@restigonofficial" target="_blank"><i class="fab fa-tiktok"></i></a>
-      </div>
+    <div class="footer-right social">
+      <a href="https://facebook.com/restigonofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/restigonofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@restigonofficial" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://x.com/restigon" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://youtube.com/@restigon" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
 </footer>
-
-<!-- JS -->
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const sideMenu = document.getElementById('sideMenu');
-  const closeMenuBtn = document.getElementById('closeMenu');
-  function openMenu(){sideMenu.classList.add('open');}
-  function closeMenu(){sideMenu.classList.remove('open');}
-  menuBtn.addEventListener('click', openMenu);
-  closeMenuBtn.addEventListener('click', closeMenu);
-</script>
 
 </body>
 </html>
