@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restigon — Diesel Products & Parts</title>
+  <title id="doc-title">Restigon — Diesel Products & Parts</title>
   <link rel="icon" href="Restigon-icon.svg" type="image/png" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
   <style>
+    /* VARIABLES */
     :root{
       --brand:#A42B2F;
       --brand-dark:#8B2325;
@@ -17,11 +18,11 @@
       --radius:10px;
     }
 
-    /* Reset */
+    /* GLOBAL RESET */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
 
-    /* Header */
+    /* HEADER STYLES */
     .site-header{
       position:fixed;left:0;right:0;top:0;height:70px;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
       display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
@@ -30,17 +31,17 @@
     .header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
     .logo{height:48px}
 
-    /* search */
+    /* Search Form */
     .search-form{display:flex;align-items:center;background:rgba(255,255,255,0.06);padding:6px;border-radius:30px}
     .search-form input{background:transparent;border:0;color:#fff;padding:8px 10px;min-width:220px;outline:none}
     .search-form button{background:var(--brand);border:0;color:#fff;padding:8px 12px;border-radius:30px;cursor:pointer}
 
-    /* hamburger */
+    /* Hamburger Button */
     .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
 
-    /* Side menu (mobile) */
+    /* SIDE MENU (MOBILE NAV) */
     .side-menu{
-      position:fixed;top:0;right:-100%;width:78%;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;
+      position:fixed;top:0;right:-100%;width:78%;max-width:300px;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;
       display:flex;flex-direction:column;padding:18px;
     }
     .side-menu.open{right:0}
@@ -52,7 +53,7 @@
     .side-links .active a { color: var(--brand); font-weight: 600; }
     .side-social{margin-top:auto;display:flex;gap:12px}
 
-    /* Utility */
+    /* UTILITY & BUTTONS */
     .btn{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600; text-align: center; transition: background-color 0.2s}
     .btn.primary{background:var(--brand);color:#fff}
     .btn.primary:hover{background:var(--brand-dark)}
@@ -77,12 +78,12 @@
       margin: 0 auto;
     }
 
-    /* SECTION layout */
+    /* SECTION LAYOUT */
     .section{padding:80px 20px;}
     .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
     .section-title{text-align:center;margin-bottom:28px;font-size:1.6rem;color:var(--brand)}
 
-    /* GRID cards */
+    /* PRODUCT GRID & CARDS */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px} 
     .card{background:#111;border-radius:12px;padding:0;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3);text-align:left; display: flex; flex-direction: column;}
     .card img{width:100%;height:200px;object-fit:cover;display:block}
@@ -92,7 +93,7 @@
     .card-meta { margin-top: auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; display: flex; justify-content: space-between; align-items: center; }
     .card-price { font-size: 1.4rem; font-weight: 700; color: var(--brand); }
 
-    /* CONTACT CARD STYLE */
+    /* CONTACT CTA */
     .contact-card{background:linear-gradient(90deg, rgba(164,43,47,0.08), rgba(0,0,0,0.02));padding:28px;border-radius:12px;text-align:center}
     .contact-card .btn{margin-top:12px}
 
@@ -105,6 +106,7 @@
     .footer-nav .active a { color: var(--brand); font-weight: 600; }
     .social a{color:#fff;margin-left:8px}
     .site-footer .f-logo { width: 80px; height: auto; }
+
     /* Language Toggle styling for footer */
     .footer-right{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
     #lang-toggle {
@@ -119,7 +121,7 @@
     }
     #lang-toggle:hover { background-color: var(--brand-dark); }
     
-    /* responsive */
+    /* RESPONSIVE DESIGN */
     @media (max-width:900px){
       .footer-grid{grid-template-columns:1fr; text-align:center}
       .site-header{padding:10px 14px;height:auto;gap:8px;flex-direction:row}
@@ -134,6 +136,22 @@
       .search-form input{min-width:90px; padding:6px}
       .hamburger{font-size:20px}
       .page-header h1{font-size:28px}
+    }
+
+    /* FLOATING ICONS */
+    .floating-icons {
+      position: fixed; top: 80px; right: 10px; display: flex;
+      flex-direction: column; gap: 10px; max-height: calc(100vh - 100px); 
+      overflow-y: auto; z-index: 1000;
+    }
+    .floating-icons .icon img {
+      width: 30px; height: 30px; transition: transform 0.2s;
+    }
+    .floating-icons .icon img:hover { transform: scale(1.1); }
+
+    @media(max-width:768px){
+      .floating-icons { top: 70px; right: 8px; gap: 8px; max-height: calc(100vh - 90px); }
+      .floating-icons .icon img { width: 20px; height: 20px; }
     }
   </style>
 </head>
@@ -285,22 +303,29 @@
 </footer>
 
 <script>
-  // SIDE MENU
+  // SIDE MENU TOGGLE LOGIC
   const menuBtn = document.getElementById('menuBtn');
   const sideMenu = document.getElementById('sideMenu');
   const closeMenuBtn = document.getElementById('closeMenu');
 
-  menuBtn.addEventListener('click', () => {
+  menuBtn && menuBtn.addEventListener('click', () => {
     sideMenu.classList.add('open');
+    sideMenu.setAttribute('aria-hidden', 'false');
   });
-  closeMenuBtn.addEventListener('click', () => {
+  closeMenuBtn && closeMenuBtn.addEventListener('click', () => {
     sideMenu.classList.remove('open');
+    sideMenu.setAttribute('aria-hidden', 'true');
   });
-  function closeMenu(){ sideMenu.classList.remove('open'); }
-  
-  // LANGUAGE TOGGLE
+  function closeMenu(){ 
+    sideMenu.classList.remove('open');
+    sideMenu.setAttribute('aria-hidden', 'true');
+  }
+
+  // LANGUAGE TOGGLE TRANSLATIONS
   const translations = {
     'en': {
+      // Document Title
+      'doc-title':'Restigon — Diesel Products & Parts',
       // Page Header
       'page-title':'Genuine Diesel Fuel Parts & Tools',
       'page-lead':'We supply high-quality parts from trusted brands like Bosch, essential for lasting repairs and engine performance. **Trust the Fix.**',
@@ -333,6 +358,8 @@
       'lang-btn-text':'বাংলা'
     },
     'bn': {
+      // Document Title
+      'doc-title':'রেস্টিগন — ডিজেল পণ্য ও যন্ত্রাংশ',
       // Page Header
       'page-title':'জেনুইন ডিজেল ফুয়েল যন্ত্রাংশ ও টুলস',
       'page-lead':'আমরা Bosch-এর মতো বিশ্বস্ত ব্র্যান্ডের উচ্চ-মানের যন্ত্রাংশ সরবরাহ করি, যা দীর্ঘস্থায়ী মেরামত ও ইঞ্জিনের কার্যকারিতার জন্য অপরিহার্য। **মেরামতে ভরসা রাখুন।**',
@@ -381,22 +408,24 @@
       const el = document.getElementById(id);
       if(el) {
         // Use innerHTML for descriptions that include bold tags
-        if (id.includes('-desc') || id.includes('page-lead') || id.includes('-cta')) {
+        if (id.includes('-desc') || id.includes('page-lead') || id.includes('-cta') || id.includes('title')) {
            el.innerHTML = activeTranslations[id];
         } else {
            el.innerText = activeTranslations[id];
         }
       }
     });
+    // Set document title separately
+    document.title = activeTranslations['doc-title'];
   }
 
   // Event listener for language toggle button
-  langBtn.addEventListener('click', () => {
+  langBtn && langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'en' ? 'bn' : 'en';
     applyTranslations();
   });
 
-  // Apply translations on initial load (optional, ensures consistency)
+  // Apply translations on initial load
   document.addEventListener('DOMContentLoaded', applyTranslations);
 </script>
 
