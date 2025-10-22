@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restigon — Products</title>
+  <link rel="icon" href="Restigon-icon.svg" type="image/png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#A42B2F;
+      --brand-dark:#8B2325;
+      --bg:#0b0b0b;
+      --muted:#cfcfcf;
+      --max-w:1200px;
+      --container-pad:20px;
+      --radius:10px;
+    }
+
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
+
+    /* Header */
+    .site-header{
+      position:fixed;left:0;right:0;top:0;height:70px;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+      display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
+      backdrop-filter: blur(6px);
+    }
+    .header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
+    .logo{height:48px}
+
+    /* search */
+    .search-form{display:flex;align-items:center;background:rgba(255,255,255,0.06);padding:6px;border-radius:30px}
+    .search-form input{background:transparent;border:0;color:#fff;padding:8px 10px;min-width:220px;outline:none}
+    .search-form button{background:var(--brand);border:0;color:#fff;padding:8px 12px;border-radius:30px;cursor:pointer}
+
+    /* hamburger */
+    .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
+
+    /* Side menu (mobile) */
+    .side-menu{
+      position:fixed;top:0;right:-100%;width:78%;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;
+      display:flex;flex-direction:column;padding:18px;
+    }
+    .side-menu.open{right:0}
+    .side-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .side-logo{height:52px}
+    .close-btn{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+    .side-links{list-style:none;padding:10px 0;display:flex;flex-direction:column;gap:14px}
+    .side-links a{color:#fff;text-decoration:none;font-size:18px}
+    /* Add style for active link */
+    .side-links .active a { color: var(--brand); font-weight: 600; }
+    .side-social{margin-top:auto;display:flex;gap:12px}
+
+    /* Utility */
+    .btn{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600; text-align: center; transition: background-color 0.2s}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.primary:hover{background:var(--brand-dark)}
+
+    /* PAGE HEADER (Replaces Hero) */
+    .page-header {
+      padding-top: 100px; /* Push down past fixed header */
+      padding-bottom: 40px;
+      background: #000;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      margin-bottom: 8px;
+      color: var(--brand);
+      letter-spacing: 1px;
+    }
+    .page-header .lead {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* SECTION layout */
+    .section{padding:80px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
+    .section-title{text-align:center;margin-bottom:28px;font-size:1.6rem;color:var(--brand)}
+
+    /* GRID cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px} /* Increased minmax for product focus */
+    .card{background:#111;border-radius:12px;padding:0;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3);text-align:left; display: flex; flex-direction: column;}
+    .card img{width:100%;height:200px;object-fit:cover;display:block} /* Taller image for products */
+    .card-content { padding: 12px 18px 18px; flex-grow: 1; display: flex; flex-direction: column; }
+    .card h3{margin-bottom: 8px; font-size: 1.3rem;}
+    .card p{font-size:.95rem;color:#cfcfcf; flex-grow: 1; margin-bottom: 12px;}
+    .card-meta { margin-top: auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .card-price { font-size: 1.4rem; font-weight: 700; color: var(--brand); }
+
+    /* FOOTER */
+    .site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:30px}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .footer-left p{opacity:.9}
+    .footer-nav{display:flex;gap:12px;justify-content:center}
+    .footer-nav a{color:#cfcfcf;text-decoration:none}
+    /* Add style for active link in footer */
+    .footer-nav .active a { color: var(--brand); font-weight: 600; }
+    .social a{color:#fff;margin-left:8px}
+    /* FOOTER - Logo size adjustment */
+       .site-footer .f-logo {
+         width: 80px;
+         height: auto;
+       }
+
+    /* responsive */
+    @media (max-width:900px){
+      .footer-grid{grid-template-columns:1fr; text-align:center}
+      .site-header{padding:10px 14px;height:auto;gap:8px;flex-direction:row}
+      .search-form input{min-width:120px}
+      .footer-center{order:3}
+      .footer-right{order:2;margin-top:12px}
+    }
+
+    @media (max-width:600px){
+      .site-header{padding:10px}
+      .logo{height:40px}
+      .search-form input{min-width:90px; padding:6px}
+      .hamburger{font-size:20px}
+      .page-header h1{font-size:28px}
+    }
+
+    /* ===========================
+       Floating Icons - Sticky Right Side
+    =========================== */
+    .floating-icons {
+      position: fixed;          
+      top: 80px;                
+      right: 10px;              
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: calc(100vh - 100px); 
+      overflow-y: auto;         
+      z-index: 1000;
+    }
+    .floating-icons .icon img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.2s;
+    }
+    .floating-icons .icon img:hover { transform: scale(1.1); }
+
+    @media(max-width:768px){
+      .floating-icons { top: 70px; right: 8px; gap: 8px; max-height: calc(100vh - 90px); }
+      .floating-icons .icon img { width: 20px; height: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="floating-icons">
+  <a href="tel:+8801710974045" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a>
+  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
+  <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry&body=Hello%20Restigon,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services.%0A%0ARegards%2C%0A" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
+</div>
+
+<header class="site-header" role="banner">
+  <div class="header-left">
+    <a href="/" class="brand" aria-label="Restigon home"><img src="Restigon-icon.png" alt="Restigon logo" class="logo"></a>
+  </div>
+  <div class="header-center" role="search">
+    <form class="search-form" onsubmit="return false;">
+      <input type="search" placeholder="Search services, parts..." aria-label="Search" id="searchInput">
+      <button type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="header-right">
+    <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<nav id="sideMenu" class="side-menu" aria-hidden="true">
+  <div class="side-top">
+    <a href="/" class="side-brand"><img src="Restigon-icon.png" alt="Restigon" class="side-logo"></a>
+    <button id="closeMenu" class="close-btn" aria-label="Close menu">✕</button>
+  </div>
+  <ul class="side-links">
+    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+    <li><a href="about.html" onclick="closeMenu()">About</a></li>
+    <li><a href="Services.html" onclick="closeMenu()">Services</a></li>
+    <li class="active"><a href="#" onclick="closeMenu()">Products</a></li>
+    <li><a href="Contact.html" onclick="closeMenu()">Contact</a></li>
+  </ul>
+  <div class="side-social">
+    <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+    <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+  </div>
+</nav>
+
+<main role="main">
+  <section class="page-header">
+    <div class="container">
+      <h1>Genuine & Certified Parts</h1>
+      <p class="lead">We stock a curated selection of high-quality fuel system parts, backed by our expertise and warranty.</p>
+    </div>
+  </section>
+
+  <section id="products" class="section products">
+    <div class="container">
+      <h2 class="section-title">Fuel System Components</h2>
+      <div class="grid">
+        
+        <article class="card">
+          <img src="product-fuel-pump-kit.webp" alt="High-Pressure Fuel Pump Repair Kit">
+          <div class="card-content">
+            <h3>HP Pump Repair Kit</h3>
+            <p>Complete sealing and component kit for common rail high-pressure fuel pumps. Ensure leak-free and optimal performance with certified parts.</p>
+            <div class="card-meta">
+              <span class="card-price">৳ 7,500</span>
+              <a href="product-details-1.html" class="btn primary">View Details</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card">
+          <img src="product-injector-nozzle.webp" alt="Diesel Injector Nozzle">
+          <div class="card-content">
+            <h3>Common Rail Nozzle</h3>
+            <p>Precision-engineered injector nozzle for clean fuel atomization, maximizing engine efficiency and reducing emissions. Compatible with Bosch/Denso units.</p>
+            <div class="card-meta">
+              <span class="card-price">৳ 2,200</span>
+              <a href="product-details-2.html" class="btn primary">View Details</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card">
+          <img src="product-filter.webp" alt="High-Efficiency Fuel Filter">
+          <div class="card-content">
+            <h3>High-Efficiency Fuel Filter</h3>
+            <p>Essential protection for your fuel system. Ultra-fine filtration to keep injectors and pumps safe from contaminants.</p>
+            <div class="card-meta">
+              <span class="card-price">৳ 850</span>
+              <a href="product-details-3.html" class="btn primary">View Details</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="product-pressure-sensor.webp" alt="Fuel Pressure Sensor">
+          <div class="card-content">
+            <h3>Rail Pressure Sensor</h3>
+            <p>Accurate and reliable pressure sensing for optimal engine management. Direct replacement for many popular models.</p>
+            <div class="card-meta">
+              <span class="card-price">৳ 4,100</span>
+              <a href="product-details-4.html" class="btn primary">View Details</a>
+            </div>
+          </div>
+        </article>
+
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div class="container contact-card">
+      <h2>Need Help Finding a Part?</h2>
+      <p>If you can't find the exact component you need, our experts can source it for you. Give us a call!</p>
+      <a href="tel:+8801710974045" class="btn primary">Call Now</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-left">
+      <img src="Restigon-icon.svg" alt="Restigon" class="f-logo">
+      <p>© 2025 Restigon. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="Services.html">Services</a>
+        <span class="active"><a href="#">Products</a></span>
+        <a href="Contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right">
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Side menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const sideMenu = document.getElementById('sideMenu');
+  const closeMenuBtn = document.getElementById('closeMenu');
+
+  function openMenu() {
+    sideMenu.classList.add('open');
+    sideMenu.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove('open');
+    sideMenu.setAttribute('aria-hidden', 'true');
+  }
+
+  menuBtn && menuBtn.addEventListener('click', openMenu);
+  closeMenuBtn && closeMenuBtn.addEventListener('click', closeMenu);
+
+  // close on outside click
+  document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // accessibility: close on Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
+
+</body>
+</html>
