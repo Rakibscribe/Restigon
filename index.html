@@ -1,117 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restigon — Trust the Fix</title>
-  <link rel="icon" href="Restigon-icon.svg" type="image/png" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-  <style>
-    :root{
-      --brand:#A42B2F;
-      --brand-dark:#8B2325;
-      --bg:#0b0b0b;
-      --muted:#cfcfcf;
-      --max-w:1200px;
-      --container-pad:20px;
-      --radius:10px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Restigon — Trust the Fix</title>
+<link rel="icon" href="Restigon-icon.svg" type="image/png" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{
+  --brand:#A42B2F;
+  --brand-dark:#8B2325;
+  --bg:#0b0b0b;
+  --muted:#cfcfcf;
+  --max-w:1200px;
+  --container-pad:20px;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
 
-    /* HEADER */
-    .site-header{
-      position:fixed;left:0;right:0;top:0;height:70px;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
-      display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
-      backdrop-filter: blur(6px);
-    }
-    .header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
-    .logo{height:48px}
+/* HEADER */
+.site-header{
+  position:fixed;left:0;right:0;top:0;height:70px;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+  display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
+  backdrop-filter: blur(6px);
+}
+.header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
+.logo{height:48px}
 
-    /* search */
-    .search-form{display:flex;align-items:center;background:rgba(255,255,255,0.06);padding:6px;border-radius:30px}
-    .search-form input{background:transparent;border:0;color:#fff;padding:8px 10px;min-width:220px;outline:none}
-    .search-form button{background:var(--brand);border:0;color:#fff;padding:8px 12px;border-radius:30px;cursor:pointer}
+/* search */
+.search-form{display:flex;align-items:center;background:rgba(255,255,255,0.06);padding:6px;border-radius:30px}
+.search-form input{background:transparent;border:0;color:#fff;padding:8px 10px;min-width:220px;outline:none}
+.search-form button{background:var(--brand);border:0;color:#fff;padding:8px 12px;border-radius:30px;cursor:pointer}
 
-    /* hamburger */
-    .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
+/* hamburger */
+.hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
 
-    /* Side menu */
-    .side-menu{
-      position:fixed;top:0;right:-100%;width:78%;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;
-      display:flex;flex-direction:column;padding:18px;
-    }
-    .side-menu.open{right:0}
-    .side-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-    .side-logo{height:52px}
-    .close-btn{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
-    .side-links{list-style:none;padding:10px 0;display:flex;flex-direction:column;gap:14px}
-    .side-links a{color:#fff;text-decoration:none;font-size:18px}
-    .side-social{margin-top:auto;display:flex;gap:12px}
+/* Side menu */
+.side-menu{
+  position:fixed;top:0;right:-100%;width:78%;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;
+  display:flex;flex-direction:column;padding:18px;
+}
+.side-menu.open{right:0}
+.side-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.side-logo{height:52px}
+.close-btn{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+.side-links{list-style:none;padding:10px 0;display:flex;flex-direction:column;gap:14px}
+.side-links a{color:#fff;text-decoration:none;font-size:18px}
+.side-social{margin-top:auto;display:flex;gap:12px}
 
-    /* HERO */
-    .hero{position:relative;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .hero::before{
-      content:"";
-      position:absolute;inset:0;
-      background-image: url('Bannar1920400.webp');
-      background-size:cover;
-      background-position:center;
-      filter:brightness(.45);
-      z-index:0;
-    }
-    .hero-overlay{position:relative;z-index:2;color:#fff;text-align:center;padding:24px;border-radius:12px;max-width:1100px}
-    .hero-overlay h1{font-size:clamp(34px,6vw,72px);margin-bottom:12px;color:var(--brand);letter-spacing:1px;text-shadow:0 8px 30px rgba(0,0,0,.6)}
-    .hero-overlay .lead{font-size:1.125rem;margin-bottom:18px;opacity:.95}
-    .btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600}
-    .btn.primary{background:var(--brand);color:#fff;margin-right:10px}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff}
+/* HERO */
+.hero{position:relative;height:90vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image: url('Bannar1920400.webp');
+  background-size:cover;
+  background-position:center;
+  filter:brightness(.45);
+  z-index:0;
+}
+.hero-overlay{position:relative;z-index:2;color:#fff;text-align:center;padding:24px;border-radius:12px;max-width:1100px}
+.hero-overlay h1{font-size:clamp(34px,6vw,72px);margin-bottom:12px;color:var(--brand);letter-spacing:1px;text-shadow:0 8px 30px rgba(0,0,0,.6)}
+.hero-overlay .lead{font-size:1.125rem;margin-bottom:18px;opacity:.95}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn.primary{background:var(--brand);color:#fff;margin-right:10px}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff}
 
-    /* SECTION layout */
-    .section{padding:80px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
-    .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
-    .section-title{text-align:center;margin-bottom:28px;font-size:1.6rem;color:var(--brand)}
-    .about-grid{display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:center}
-    .about-image img{width:220px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+/* FLOATING ICONS */
+.floating-icons{
+  position:fixed;bottom:30px;right:30px;display:flex;flex-direction:column;gap:12px;z-index:1500;
+}
+.floating-icons a{
+  display:flex;align-items:center;justify-content:center;width:48px;height:48px;
+  border-radius:50%;background:var(--brand);color:#fff;text-decoration:none;font-size:20px;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .2s;
+}
+.floating-icons a:hover{transform:scale(1.1)}
 
-    /* GRID cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-    .card{background:#111;border-radius:12px;padding:0;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3);text-align:left}
-    .card img{width:100%;height:160px;object-fit:cover;display:block}
-    .card h3{padding:12px 14px 0 14px}
-    .card p{padding:8px 14px 18px;font-size:.95rem;color:#cfcfcf}
+/* SECTION layout */
+.section{padding:80px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
+.section-title{text-align:center;margin-bottom:28px;font-size:1.6rem;color:var(--brand)}
+.about-grid{display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:center}
+.about-image img{width:220px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 
-    /* CONTACT CTA */
-    .contact-card{background:linear-gradient(90deg, rgba(164,43,47,0.08), rgba(0,0,0,0.02));padding:28px;border-radius:12px;text-align:center}
-    .contact-card .btn{margin-top:12px}
+/* GRID cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:#111;border-radius:12px;padding:0;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3);text-align:left}
+.card img{width:100%;height:160px;object-fit:cover;display:block}
+.card h3{padding:12px 14px 0 14px}
+.card p{padding:8px 14px 18px;font-size:.95rem;color:#cfcfcf}
 
-    /* FOOTER */
-    .site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:30px}
-    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
-    .footer-left p{opacity:.9}
-    .footer-nav{display:flex;gap:12px;justify-content:center}
-    .footer-nav a{color:#cfcfcf;text-decoration:none}
-    .social a{color:#fff;margin-left:8px}
-    .site-footer .f-logo { width: 80px; height: auto; }
+/* CONTACT CTA */
+.contact-card{background:linear-gradient(90deg, rgba(164,43,47,0.08), rgba(0,0,0,0.02));padding:28px;border-radius:12px;text-align:center}
+.contact-card .btn{margin-top:12px}
 
-    /* responsive */
-    @media (max-width:900px){
-      .about-grid{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr; text-align:center}
-      .site-header{padding:10px 14px;height:auto;gap:8px;flex-direction:row}
-      .search-form input{min-width:120px}
-      .hero-overlay{padding:12px}
-      .footer-center{order:3}
-      .footer-right{order:2;margin-top:12px}
-    }
-    @media (max-width:600px){
-      .site-header{padding:10px}
-      .logo{height:40px}
-      .search-form input{min-width:90px; padding:6px}
-      .hamburger{font-size:20px}
-      .hero-overlay h1{font-size:28px}
-    }
-  </style>
+/* FOOTER */
+.site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:30px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
+.footer-left p{opacity:.9}
+.footer-nav{display:flex;gap:12px;justify-content:center}
+.footer-nav a{color:#cfcfcf;text-decoration:none}
+.social a{color:#fff;margin-left:8px}
+.site-footer .f-logo { width: 80px; height: auto; }
+
+/* responsive */
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr; text-align:center}
+  .site-header{padding:10px 14px;height:auto;gap:8px;flex-direction:row}
+  .search-form input{min-width:120px}
+  .hero-overlay{padding:12px}
+  .footer-center{order:3}
+  .footer-right{order:2;margin-top:12px}
+}
+@media (max-width:600px){
+  .site-header{padding:10px}
+  .logo{height:40px}
+  .search-form input{min-width:90px; padding:6px}
+  .hamburger{font-size:20px}
+  .hero-overlay h1{font-size:28px}
+}
+</style>
 </head>
 <body>
 
@@ -164,6 +175,14 @@
     </div>
   </div>
 </main>
+
+<!-- FLOATING ICONS -->
+<div class="floating-icons">
+  <a href="tel:+123456789"><i class="fa fa-phone"></i></a>
+  <a href="mailto:restigon@gmail.com"><i class="fa fa-envelope"></i></a>
+  <a href="#"><i class="fa fa-map-marker-alt"></i></a>
+  <a href="#"><i class="fa fa-share-alt"></i></a>
+</div>
 
 <!-- ABOUT -->
 <section id="about" class="section about">
@@ -229,13 +248,13 @@
       </nav>
     </div>
     <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:10px;">
-     <div class="social">
-  <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-  <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-  <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-  <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-</div>
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+      </div>
       <button id="lang-toggle" style="
         background-color: #A42B2F;
         color: #fff;
@@ -249,19 +268,13 @@
   </div>
 </footer>
 
-<!-- JS -->
 <script>
   // SIDE MENU
   const menuBtn = document.getElementById('menuBtn');
   const sideMenu = document.getElementById('sideMenu');
   const closeMenuBtn = document.getElementById('closeMenu');
-
-  menuBtn.addEventListener('click', () => {
-    sideMenu.classList.add('open');
-  });
-  closeMenuBtn.addEventListener('click', () => {
-    sideMenu.classList.remove('open');
-  });
+  menuBtn.addEventListener('click', () => sideMenu.classList.add('open'));
+  closeMenuBtn.addEventListener('click', () => sideMenu.classList.remove('open'));
   function closeMenu(){ sideMenu.classList.remove('open'); }
 
   // LANGUAGE TOGGLE
@@ -304,7 +317,6 @@
 
   let currentLang = 'en';
   const langBtn = document.getElementById('lang-toggle');
-
   langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'en' ? 'bn' : 'en';
     langBtn.innerText = translations[currentLang]['lang-btn-text'];
@@ -314,8 +326,5 @@
     });
   });
 </script>
-
 </body>
 </html>
-
-
