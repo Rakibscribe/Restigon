@@ -188,6 +188,172 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
 </div>
 
 <!-- Remaining sections like About, Services, Products, Contact, Footer... -->
+  <!-- ABOUT -->
+<section id="about" class="section about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 id="about-title">Meet our MD — Md. Kashem Khan</h2>
+        <p id="about-desc">At <strong>Restigon</strong>, we combine over <strong>30 years of professional experience</strong> in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.</p>
+      </div>
+      <div class="about-image">
+        <img src="md-kashem-khan.webp" alt="MD Kashem Khan">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section services">
+  <div class="container">
+    <h2 class="section-title" id="services-title">Our Services</h2>
+    <div class="grid">
+      <article class="card">
+        <img src="fuel-testing-1.webp" alt="Fuel Pump Testing">
+        <h3 id="service1-title">Fuel Pump Testing</h3>
+        <p id="service1-desc">Full bench test & flow analysis for all pump types.</p>
+      </article>
+      <article class="card">
+        <img src="fuel-testing-2.webp" alt="Injector Testing">
+        <h3 id="service2-title">Injector Testing & Cleaning</h3>
+        <p id="service2-desc">Precise atomization check & ultrasonic cleaning options for all injector types to maintain performance and longevity.</p>
+      </article>
+      <article class="card">
+        <img src="fuel-testing-3.webp" alt="Calibration">
+        <h3 id="service3-title">Calibration & Repair</h3>
+        <p id="service3-desc">Calibration, repair & component replacement with warranty.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="section products">
+  <div class="container">
+    <h2 class="section-title">Our Products</h2>
+    <div class="grid">
+      <article class="card">
+        <img src="fuel-pump.webp" alt="Fuel Pump">
+        <h3>Fuel Pumps</h3>
+        <p>High-quality diesel fuel pumps compatible with multiple vehicle types.</p>
+      </article>
+      <article class="card">
+        <img src="injector-nozzle.webp" alt="Injector Nozzle">
+        <h3>Injector Nozzles</h3>
+        <p>Durable diesel injector nozzles to ensure efficient atomization and performance.</p>
+      </article>
+      <article class="card">
+        <img src="other-products.webp" alt="Other Products">
+        <h3>Other Components</h3>
+        <p>Spare parts and accessories for fuel systems maintenance and repair.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section id="contact" class="section contact">
+  <div class="container contact-card">
+    <h2 id="contact-title">Contact Us</h2>
+    <p id="contact-desc">Book a test or get a quotation. Call or message us on social media.</p>
+    <a href="mailto:restigon@gmail.com" class="btn primary">Email Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-left">
+      <img src="Restigon-icon.svg" alt="Restigon" class="f-logo">
+      <p id="footer-text">© 2025 Restigon. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:10px;">
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+      </div>
+      <button id="lang-toggle" style="
+        background-color: #A42B2F;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+      ">বাংলা</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // SIDE MENU
+  const menuBtn = document.getElementById('menuBtn');
+  const sideMenu = document.getElementById('sideMenu');
+  const closeMenuBtn = document.getElementById('closeMenu');
+  menuBtn.addEventListener('click', () => sideMenu.classList.add('open'));
+  closeMenuBtn.addEventListener('click', () => sideMenu.classList.remove('open'));
+  function closeMenu(){ sideMenu.classList.remove('open'); }
+
+  // LANGUAGE TOGGLE
+  const translations = {
+    'en': {
+      'hero-title':'Restigon — Trust the Fix',
+      'hero-desc':'Over 30 years of trusted expertise in fuel pump & injector testing',
+      'about-title':'Meet our MD — Md. Kashem Khan',
+      'about-desc':'At Restigon, we combine over 30 years of professional experience in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.',
+      'services-title':'Our Services',
+      'service1-title':'Fuel Pump Testing',
+      'service1-desc':'Full bench test & flow analysis for all pump types.',
+      'service2-title':'Injector Testing & Cleaning',
+      'service2-desc':'Precise atomization check & ultrasonic cleaning options for all injector types to maintain performance and longevity.',
+      'service3-title':'Calibration & Repair',
+      'service3-desc':'Calibration, repair & component replacement with warranty.',
+      'contact-title':'Contact Us',
+      'contact-desc':'Book a test or get a quotation. Call or message us on social media.',
+      'footer-text':'© 2025 Restigon. All rights reserved.',
+      'lang-btn-text':'বাংলা'
+    },
+    'bn': {
+      'hero-title':'রেস্টিগন — বিশ্বাস রাখুন আমাদের মেরামতে',
+      'hero-desc':'আপনার গাড়ির ফুয়েল পাম্প ও ইনজেক্টর পরীক্ষার ৩০ বছরের অভিজ্ঞতা।',
+      'about-title':'আমাদের ব্যবস্থাপনা পরিচালক — মোঃ কাশেম খান',
+      'about-desc':'রেস্টিগনে, আমরা ফুয়েল পাম্প এবং ইনজেক্টর পরীক্ষায় ৩০ বছরের পেশাদার অভিজ্ঞতা একত্রিত করেছি। আমাদের বিশেষজ্ঞ এমডি কাশেম খানের নেতৃত্বে, আমাদের প্রযুক্তিবিদরা নিশ্চিত করেন প্রতিটি পরীক্ষায় নিখুঁততা, নির্ভরযোগ্যতা এবং অসাধারণ কার্যকারিতা।',
+      'services-title':'আমাদের সেবাসমূহ',
+      'service1-title':'ফুয়েল পাম্প পরীক্ষা',
+      'service1-desc':'সব ধরণের পাম্পের সম্পূর্ণ বেন্চ পরীক্ষা ও ফ্লো বিশ্লেষণ।',
+      'service2-title':'ইনজেক্টর পরীক্ষা ও পরিস্কার',
+      'service2-desc':'সঠিক atomization পরীক্ষা ও আল্ট্রাসনিক পরিস্কার সকল ইনজেক্টরের জন্য।',
+      'service3-title':'ক্যালিব্রেশন ও মেরামত',
+      'service3-desc':'ক্যালিব্রেশন, মেরামত ও অংশ প্রতিস্থাপন সহ ওয়ারেন্টি।',
+      'contact-title':'যোগাযোগ করুন',
+      'contact-desc':'পরীক্ষার বুকিং বা কোটেশন চাইলে কল করুন অথবা সোশ্যাল মিডিয়ায় ম্যাসেজ করুন।',
+      'footer-text':'© ২০২৫ রেস্টিগন। সকল অধিকার সংরক্ষিত।',
+      'lang-btn-text':'English'
+    }
+  };
+
+  let currentLang = 'en';
+  const langBtn = document.getElementById('lang-toggle');
+  langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'bn' : 'en';
+    langBtn.innerText = translations[currentLang]['lang-btn-text'];
+    Object.keys(translations[currentLang]).forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.innerText = translations[currentLang][id];
+    });
+  });
+</script>
 
 <script>
   const menuBtn = document.getElementById('menuBtn');
@@ -200,3 +366,4 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
 
 </body>
 </html>
+
