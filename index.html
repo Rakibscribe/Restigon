@@ -1,266 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Restigon — Trust the Fix</title>
-<link rel="icon" href="Restigon-icon.svg" type="image/png" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-<style>
-:root{
-  --brand:#A42B2F;
-  --brand-dark:#8B2325;
-  --bg:#0b0b0b;
-  --muted:#cfcfcf;
-  --max-w:1200px;
-  --container-pad:20px;
-  --radius:10px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="doc-title">Restigon — Diesel Pump & Injector Services</title>
+  <link rel="icon" href="Restigon-icon.svg" type="image/png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* VARIABLES */
+    :root{
+      --brand:#A42B2F; /* Restigon Red */
+      --brand-dark:#8B2325;
+      --bg:#0b0b0b;
+      --muted:#cfcfcf;
+      --max-w:1200px;
+      --container-pad:20px;
+      --radius:10px;
+    }
 
-/* HEADER */
-.site-header{
-  position:fixed;left:0;right:0;top:0;height:70px;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
-  display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
-  backdrop-filter: blur(6px);
-}
-.header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
-.logo{height:48px}
+    /* GLOBAL RESET */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:#000;color:#fff}
 
-/* search */
-.search-form{display:flex;align-items:center;background:rgba(255,255,255,0.06);padding:6px;border-radius:30px}
-.search-form input{background:transparent;border:0;color:#fff;padding:8px 10px;min-width:220px;outline:none}
-.search-form button{background:var(--brand);border:0;color:#fff;padding:8px 12px;border-radius:30px;cursor:pointer}
+    /* HEADER & NAV (Same as other pages) */
+    .site-header{
+      position:fixed;left:0;right:0;top:0;height:70px;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+      display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:1200;
+      backdrop-filter: blur(6px);
+    }
+    .header-left, .header-center, .header-right { display:flex; align-items:center; gap:12px; }
+    .logo{height:48px}
+    .search-form{display:flex;align-items:center;background:rgba(255,255,255,0.06);padding:6px;border-radius:30px}
+    .search-form input{background:transparent;border:0;color:#fff;padding:8px 10px;min-width:220px;outline:none}
+    .search-form button{background:var(--brand);border:0;color:#fff;padding:8px 12px;border-radius:30px;cursor:pointer}
+    .hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
+    .side-menu{position:fixed;top:0;right:-100%;width:78%;max-width:300px;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;display:flex;flex-direction:column;padding:18px;}
+    .side-menu.open{right:0}
+    .side-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .side-logo{height:52px}
+    .close-btn{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+    .side-links{list-style:none;padding:10px 0;display:flex;flex-direction:column;gap:14px}
+    .side-links a{color:#fff;text-decoration:none;font-size:18px}
+    .side-links .active a { color: var(--brand); font-weight: 600; }
+    .side-social{margin-top:auto;display:flex;gap:12px}
 
-/* hamburger */
-.hamburger{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer;padding:6px 10px}
+    /* UTILITY & BUTTONS */
+    .btn{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600; text-align: center; transition: background-color 0.2s}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.primary:hover{background:var(--brand-dark)}
 
-/* Side menu */
-.side-menu{
-  position:fixed;top:0;right:-100%;width:78%;height:100%;background:#0e0e0e;color:#fff;z-index:1300;transition:right .35s ease;
-  display:flex;flex-direction:column;padding:18px;
-}
-.side-menu.open{right:0}
-.side-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-.side-logo{height:52px}
-.close-btn{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
-.side-links{list-style:none;padding:10px 0;display:flex;flex-direction:column;gap:14px}
-.side-links a{color:#fff;text-decoration:none;font-size:18px}
-.side-social{margin-top:auto;display:flex;gap:12px}
+    /* PAGE HEADER */
+    .page-header {
+      padding-top: 100px;
+      padding-bottom: 40px;
+      background: #000;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      margin-bottom: 8px;
+      color: var(--brand);
+      letter-spacing: 1px;
+    }
+    .page-header .lead {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-/* HERO */
-.hero{position:relative;height:90vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.hero::before{
-  content:"";
-  position:absolute;inset:0;
-  background-image: url('Bannar1920400.webp');
-  background-size:cover;
-  background-position:center;
-  filter:brightness(.45);
-  z-index:0;
-}
-.hero-overlay{position:relative;z-index:2;color:#fff;text-align:center;padding:24px;border-radius:12px;max-width:1100px}
-.hero-overlay h1{font-size:clamp(34px,6vw,72px);margin-bottom:12px;color:var(--brand);letter-spacing:1px;text-shadow:0 8px 30px rgba(0,0,0,.6)}
-.hero-overlay .lead{font-size:1.125rem;margin-bottom:18px;opacity:.95}
-.btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600}
-.btn.primary{background:var(--brand);color:#fff;margin-right:10px}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff}
+    /* SECTION LAYOUT */
+    .section{padding:60px 20px;}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
+    .section-title{text-align:center;margin-bottom:28px;font-size:1.6rem;color:var(--brand)}
 
-/* FLOATING ICONS - BELOW HERO */
-.floating-icons{
-  position: absolute;  /* hero relative er under set */
-  top: calc(90vh + 10px); /* hero niche 10px gap */
-  left: 20px;           /* left side */
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index:100;
-}
-.floating-icons .icon{
-  width:50px; height:50px;
-  background:rgba(0,0,0,0); /* transparent */
-  display:flex;justify-content:center;align-items:center;
-  border-radius:50%;
-  border:2px solid var(--brand); /* red/maroon border */
-}
-.floating-icons .icon img{
-  width:28px;height:28px;
-}
-.floating-icons .icon:hover img{transform:none;} /* no animation */
+    /* CORE SERVICE ITEMS (Educational Block Style) */
+    .service-item {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        background: #111;
+        padding: 30px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,.2);
+    }
+    .service-item:nth-child(even) { /* Reverse layout for alternating look */
+        flex-direction: row-reverse;
+    }
+    .service-image {
+        flex: 0 0 40%;
+        max-width: 400px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,.4);
+    }
+    .service-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    .service-content {
+        flex: 1;
+    }
+    .service-content h3 {
+        color: var(--brand);
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    .service-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--muted);
+        margin-bottom: 15px;
+    }
+    .service-content ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 15px;
+    }
+    .service-content ul li {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: #fff;
+    }
+    .service-content ul li::before {
+        content: '✓';
+        color: #2ECC71; /* Green checkmark */
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
 
-/* SECTIONS */
-.section{padding:80px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
-.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
-.section-title{text-align:center;margin-bottom:28px;font-size:1.6rem;color:var(--brand)}
-.about-grid{display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:center}
-.about-image img{width:220px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.card{background:#111;border-radius:12px;padding:0;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3);text-align:left}
-.card img{width:100%;height:160px;object-fit:cover;display:block}
-.card h3{padding:12px 14px 0 14px}
-.card p{padding:8px 14px 18px;font-size:.95rem;color:#cfcfcf}
+    /* CONTACT CTA */
+    .contact-card{background:linear-gradient(90deg, rgba(164,43,47,0.08), rgba(0,0,0,0.02));padding:28px;border-radius:12px;text-align:center; margin-top: 40px;}
+    .contact-card .btn{margin-top:12px}
 
-/* CONTACT CTA */
-.contact-card{background:linear-gradient(90deg, rgba(164,43,47,0.08), rgba(0,0,0,0.02));padding:28px;border-radius:12px;text-align:center}
-.contact-card .btn{margin-top:12px}
+    /* FOOTER */
+    .site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:30px}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .footer-left p{opacity:.9}
+    .footer-nav{display:flex;gap:12px;justify-content:center}
+    .footer-nav a{color:#cfcfcf;text-decoration:none}
+    .footer-nav .active a { color: var(--brand); font-weight: 600; }
+    .social a{color:#fff;margin-left:8px}
+    .site-footer .f-logo { width: 80px; height: auto; }
+    .footer-right{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+    #lang-toggle {
+        background-color: var(--brand);
+        color: #fff; border: none; padding: 6px 12px;
+        border-radius: 6px; cursor: pointer; font-size: 14px;
+        transition: background-color 0.2s;
+    }
+    
+    /* RESPONSIVE DESIGN */
+    @media (max-width:900px){
+        .service-item, .service-item:nth-child(even) {
+            flex-direction: column;
+            gap: 20px;
+        }
+        .service-image {
+            order: -1; /* Image always on top in mobile */
+            max-width: 100%;
+        }
+        .footer-grid{grid-template-columns:1fr; text-align:center}
+        .site-header{padding:10px 14px;height:auto;gap:8px;flex-direction:row}
+        .footer-center{order:3}
+        .footer-right{order:2;margin-top:12px; align-items: center;}
+    }
 
-/* FOOTER */
-.site-footer{background:#070707;color:#cfcfcf;padding:28px 0;margin-top:30px}
-.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;max-width:var(--max-w);margin:0 auto;padding:0 20px}
-.footer-left p{opacity:.9}
-.footer-nav{display:flex;gap:12px;justify-content:center}
-.footer-nav a{color:#cfcfcf;text-decoration:none}
-.social a{color:#fff;margin-left:8px}
-.site-footer .f-logo { width: 80px; height: auto; }
-
-/* responsive */
-@media (max-width:900px){
-  .about-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr; text-align:center}
-  .site-header{padding:10px 14px;height:auto;gap:8px;flex-direction:row}
-  .search-form input{min-width:120px}
-  .hero-overlay{padding:12px}
-  .footer-center{order:3}
-  .footer-right{order:2;margin-top:12px}
-}
-@media (max-width:600px){
-  .site-header{padding:10px}
-  .logo{height:40px}
-  .search-form input{min-width:90px; padding:6px}
-  .hamburger{font-size:20px}
-  .hero-overlay h1{font-size:28px}
-  .floating-icons{flex-direction:row;top:calc(90vh + 10px);left:10px;gap:6px;}
-}
-</style>
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
+<div class="floating-icons">
+  <a href="tel:YOUR_PHONE_NUMBER" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a> 
+  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
+  <a href="mailto:restigon@gmail.com?subject=Website%20Inquiry" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
+</div>
+
+<header class="site-header" role="banner">
   <div class="header-left">
-    <a href="/" class="brand"><img src="Restigon-icon.png" alt="Restigon logo" class="logo"></a>
+    <a href="/" class="brand" aria-label="Restigon home"><img src="Restigon-icon.png" alt="Restigon logo" class="logo"></a>
   </div>
-  <div class="header-center">
+  <div class="header-center" role="search">
     <form class="search-form" onsubmit="return false;">
-      <input type="search" placeholder="Search services, parts..." id="searchInput">
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <input type="search" placeholder="Search parts, tools..." aria-label="Search" id="searchInput">
+      <button type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <div class="header-right">
-    <button id="menuBtn" class="hamburger">☰</button>
+    <button id="menuBtn" class="hamburger" aria-label="Open menu">☰</button>
   </div>
 </header>
 
-<!-- SIDE MENU -->
 <nav id="sideMenu" class="side-menu" aria-hidden="true">
   <div class="side-top">
     <a href="/" class="side-brand"><img src="Restigon-icon.png" alt="Restigon" class="side-logo"></a>
-    <button id="closeMenu" class="close-btn">✕</button>
+    <button id="closeMenu" class="close-btn" aria-label="Close menu">✕</button>
   </div>
   <ul class="side-links">
     <li><a href="index.html" onclick="closeMenu()">Home</a></li>
     <li><a href="about.html" onclick="closeMenu()">About</a></li>
-    <li><a href="#services" onclick="closeMenu()">Services</a></li>
-    <li><a href="products.html" onclick="closeMenu()">Products</a></li>
-    <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+    <li class="active"><a href="#" onclick="closeMenu()" id="side-link-services">Services (Testing & Repair)</a></li>
+    <li><a href="Products.html" onclick="closeMenu()" id="side-link-products">Products (Parts)</a></li>
+    <li><a href="Contact.html" onclick="closeMenu()">Contact</a></li>
   </ul>
+  <div class="side-social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
 </nav>
 
-<!-- HERO -->
-<main class="hero">
-  <div class="hero-overlay">
-    <h1 id="hero-title">Restigon — Trust the Fix</h1>
-    <p id="hero-desc" class="lead">Over 30 years of trusted expertise in fuel pump & injector testing</p>
-    <div class="hero-cta">
-      <a href="#services" class="btn primary">Our Services</a>
-      <a href="#contact" class="btn ghost">Contact Us</a>
+<main role="main">
+  <section class="page-header">
+    <div class="container">
+      <h1 id="page-title">Expert Diesel Fuel System Testing & Repair</h1>
+      <p id="page-lead" class="lead">We provide precision diagnostics, flow testing, and expert repair services for all types of diesel pumps and injectors using advanced test bench technology. **Trust the Fix.**</p>
     </div>
-  </div>
+  </section>
+
+  <section id="services-list" class="section services-list">
+    <div class="container">
+      <h2 class="section-title" id="section-services-title">Our Core Specializations</h2>
+
+      <article class="service-item">
+        <div class="service-image">
+          <img src="YOUR_COMMON_RAIL_PUMP_TESTING_IMAGE.webp" alt="Common Rail Pump Testing">
+        </div>
+        <div class="service-content">
+          <h3 id="service1-title">Common Rail & Rotary Pump Testing</h3>
+          <p id="service1-desc">Modern diesel engines rely on extremely precise high-pressure fuel pumps. Our specialized **Test Bench** provides a detailed flow and pressure diagnosis to identify any performance issues.</p>
+          <ul id="service1-list">
+            <li>Electronic Diagnostics (Flow/Pressure)</li>
+            <li>Seals and Component Replacement</li>
+            <li>Full Pump Recalibration</li>
+          </ul>
+          <a href="tel:YOUR_PHONE_NUMBER" class="btn primary" id="service1-btn">Book Pump Test</a>
+        </div>
+      </article>
+
+      <article class="service-item">
+        <div class="service-image">
+          <img src="YOUR_INJECTOR_TESTING_IMAGE.webp" alt="Diesel Injector Testing">
+        </div>
+        <div class="service-content">
+          <h3 id="service2-title">Injector & Nozzle Flow Testing</h3>
+          <p id="service2-desc">Fuel injectors are vital for clean combustion. We perform atomization pattern checks and precise flow tests on both **Common Rail** and traditional **Nozzles** to ensure optimum fuel delivery.</p>
+          <ul id="service2-list">
+            <li>Atomization Pattern Check</li>
+            <li>Ultrasonic Cleaning & Sealing</li>
+            <li>Nozzle Replacement & Calibration</li>
+          </ul>
+          <a href="tel:YOUR_PHONE_NUMBER" class="btn primary" id="service2-btn">Book Nozzle Test</a>
+        </div>
+      </article>
+
+      <article class="service-item">
+        <div class="service-image">
+          <img src="YOUR_LINER_PUMP_REPAIR_IMAGE.webp" alt="Liner Pump Repair">
+        </div>
+        <div class="service-content">
+          <h3 id="service3-title">Inline (Liner) Pump Repair & Timing</h3>
+          <p id="service3-desc">We maintain expertise in repairing heavy-duty **Liner Pumps** used in older commercial vehicles and industrial engines. We ensure correct pump timing and element calibration for maximum efficiency.</p>
+          <ul id="service3-list">
+            <li>Timing and Element Synchronization</li>
+            <li>Bench Testing for Flow Rate</li>
+            <li>Complete Overhaul and Reseal</li>
+          </ul>
+          <a href="tel:YOUR_PHONE_NUMBER" class="btn primary" id="service3-btn">Request Liner Service</a>
+        </div>
+      </article>
+      
+      <div class="container contact-card">
+        <h2 id="contact-title-cta">Ready to Get Your Pump or Injector Fixed?</h2>
+        <p id="contact-desc-cta">Our core strength is **fixing** and **flow testing**. Call us to book a Test Bench appointment or consult on your fuel system issues.</p>
+        <a href="tel:YOUR_PHONE_NUMBER" class="btn primary" id="contact-btn-cta">Call Now for Service</a>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
-<!-- FLOATING ICONS -->
-<div class="floating-icons">
-  <a href="tel:+8801710974045" class="icon call" title="Call Us"><img src="call-icon.svg" alt="Call"></a>
-  <a href="https://goo.gl/maps/yourlocation" target="_blank" class="icon location" title="Our Location"><img src="location-icon.svg" alt="Location"></a>
-  <a href="mailto:restigon@gmail.com" class="icon mail" title="Email Us"><img src="mail-icon.svg" alt="Email"></a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://restigon.com" target="_blank" class="icon share" title="Share"><img src="share-icon.svg" alt="Share"></a>
-</div>
-
-<!-- Remaining sections like About, Services, Products, Contact, Footer... -->
-  <!-- ABOUT -->
-<section id="about" class="section about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 id="about-title">Meet our MD — Md. Kashem Khan</h2>
-        <p id="about-desc">At <strong>Restigon</strong>, we combine over <strong>30 years of professional experience</strong> in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.</p>
-      </div>
-      <div class="about-image">
-        <img src="md-kashem-khan.webp" alt="MD Kashem Khan">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section services">
-  <div class="container">
-    <h2 class="section-title" id="services-title">Our Services</h2>
-    <div class="grid">
-      <article class="card">
-        <img src="fuel-testing-1.webp" alt="Fuel Pump Testing">
-        <h3 id="service1-title">Fuel Pump Testing</h3>
-        <p id="service1-desc">Full bench test & flow analysis for all pump types.</p>
-      </article>
-      <article class="card">
-        <img src="fuel-testing-2.webp" alt="Injector Testing">
-        <h3 id="service2-title">Injector Testing & Cleaning</h3>
-        <p id="service2-desc">Precise atomization check & ultrasonic cleaning options for all injector types to maintain performance and longevity.</p>
-      </article>
-      <article class="card">
-        <img src="fuel-testing-3.webp" alt="Calibration">
-        <h3 id="service3-title">Calibration & Repair</h3>
-        <p id="service3-desc">Calibration, repair & component replacement with warranty.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products" class="section products">
-  <div class="container">
-    <h2 class="section-title">Our Products</h2>
-    <div class="grid">
-      <article class="card">
-        <img src="fuel-pump.webp" alt="Fuel Pump">
-        <h3>Fuel Pumps</h3>
-        <p>High-quality diesel fuel pumps compatible with multiple vehicle types.</p>
-      </article>
-      <article class="card">
-        <img src="injector-nozzle.webp" alt="Injector Nozzle">
-        <h3>Injector Nozzles</h3>
-        <p>Durable diesel injector nozzles to ensure efficient atomization and performance.</p>
-      </article>
-      <article class="card">
-        <img src="other-products.webp" alt="Other Products">
-        <h3>Other Components</h3>
-        <p>Spare parts and accessories for fuel systems maintenance and repair.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT CTA -->
-<section id="contact" class="section contact">
-  <div class="container contact-card">
-    <h2 id="contact-title">Contact Us</h2>
-    <p id="contact-desc">Book a test or get a quotation. Call or message us on social media.</p>
-    <a href="mailto:restigon@gmail.com" class="btn primary">Email Us</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-left">
@@ -269,101 +297,155 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif
     </div>
     <div class="footer-center">
       <nav class="footer-nav">
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" id="footer-link-about">About</a>
+        <span class="active"><a href="#" id="footer-link-services">Services</a></span>
+        <a href="Products.html" id="footer-link-products">Products</a>
+        <a href="Contact.html" id="footer-link-contact">Contact</a>
       </nav>
     </div>
-    <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:10px;">
+    <div class="footer-right">
       <div class="social">
-        <a href="https://www.facebook.com/profile.php?id=61573914841169" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/restigonofficial/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@restigonofficial" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-        <a href="https://x.com/restigon" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://youtube.com/@restigon" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
       </div>
-      <button id="lang-toggle" style="
-        background-color: #A42B2F;
-        color: #fff;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-      ">বাংলা</button>
+      <button id="lang-toggle">বাংলা</button>
     </div>
   </div>
 </footer>
 
 <script>
-  // SIDE MENU
+  // SIDE MENU TOGGLE LOGIC
   const menuBtn = document.getElementById('menuBtn');
   const sideMenu = document.getElementById('sideMenu');
   const closeMenuBtn = document.getElementById('closeMenu');
-  menuBtn.addEventListener('click', () => sideMenu.classList.add('open'));
-  closeMenuBtn.addEventListener('click', () => sideMenu.classList.remove('open'));
-  function closeMenu(){ sideMenu.classList.remove('open'); }
 
-  // LANGUAGE TOGGLE
+  menuBtn && menuBtn.addEventListener('click', () => {
+    sideMenu.classList.add('open');
+    sideMenu.setAttribute('aria-hidden', 'false');
+  });
+  closeMenuBtn && closeMenuBtn.addEventListener('click', () => {
+    sideMenu.classList.remove('open');
+    sideMenu.setAttribute('aria-hidden', 'true');
+  });
+  function closeMenu(){ 
+    sideMenu.classList.remove('open');
+    sideMenu.setAttribute('aria-hidden', 'true');
+  }
+
+  // LANGUAGE TOGGLE TRANSLATIONS
   const translations = {
     'en': {
-      'hero-title':'Restigon — Trust the Fix',
-      'hero-desc':'Over 30 years of trusted expertise in fuel pump & injector testing',
-      'about-title':'Meet our MD — Md. Kashem Khan',
-      'about-desc':'At Restigon, we combine over 30 years of professional experience in fuel pump and injector testing. Led by our expert MD Kashem Khan, our technicians ensure precision, reliability, and unmatched performance in every test.',
-      'services-title':'Our Services',
-      'service1-title':'Fuel Pump Testing',
-      'service1-desc':'Full bench test & flow analysis for all pump types.',
-      'service2-title':'Injector Testing & Cleaning',
-      'service2-desc':'Precise atomization check & ultrasonic cleaning options for all injector types to maintain performance and longevity.',
-      'service3-title':'Calibration & Repair',
-      'service3-desc':'Calibration, repair & component replacement with warranty.',
-      'contact-title':'Contact Us',
-      'contact-desc':'Book a test or get a quotation. Call or message us on social media.',
+      // Document Title
+      'doc-title':'Restigon — Diesel Pump & Injector Services',
+      // Page Header
+      'page-title':'Expert Diesel Fuel System Testing & Repair',
+      'page-lead':'We provide precision diagnostics, flow testing, and expert repair services for all types of diesel pumps and injectors using advanced test bench technology. **Trust the Fix.**',
+      'section-services-title':'Our Core Specializations',
+      // Service 1
+      'service1-title':'Common Rail & Rotary Pump Testing',
+      'service1-desc':'Modern diesel engines rely on extremely precise high-pressure fuel pumps. Our specialized **Test Bench** provides a detailed flow and pressure diagnosis to identify any performance issues.',
+      'service1-list': '<li>Electronic Diagnostics (Flow/Pressure)</li><li>Seals and Component Replacement</li><li>Full Pump Recalibration</li>',
+      'service1-btn':'Book Pump Test',
+      // Service 2
+      'service2-title':'Injector & Nozzle Flow Testing',
+      'service2-desc':'Fuel injectors are vital for clean combustion. We perform atomization pattern checks and precise flow tests on both **Common Rail** and traditional **Nozzles** to ensure optimum fuel delivery.',
+      'service2-list': '<li>Atomization Pattern Check</li><li>Ultrasonic Cleaning & Sealing</li><li>Nozzle Replacement & Calibration</li>',
+      'service2-btn':'Book Nozzle Test',
+      // Service 3
+      'service3-title':'Inline (Liner) Pump Repair & Timing',
+      'service3-desc':'We maintain expertise in repairing heavy-duty **Liner Pumps** used in older commercial vehicles and industrial engines. We ensure correct pump timing and element calibration for maximum efficiency.',
+      'service3-list': '<li>Timing and Element Synchronization</li><li>Bench Testing for Flow Rate</li><li>Complete Overhaul and Reseal</li>',
+      'service3-btn':'Request Liner Service',
+      // Contact CTA
+      'contact-title-cta':'Ready to Get Your Pump or Injector Fixed?',
+      'contact-desc-cta':'Our core strength is **fixing** and **flow testing**. Call us to book a Test Bench appointment or consult on your fuel system issues.',
+      'contact-btn-cta':'Call Now for Service',
+      // Footer/Nav
       'footer-text':'© 2025 Restigon. All rights reserved.',
+      'side-link-services':'Services (Testing & Repair)',
+      'side-link-products':'Products (Parts)',
+      'footer-link-about':'About',
+      'footer-link-services':'Services',
+      'footer-link-products':'Products',
+      'footer-link-contact':'Contact',
       'lang-btn-text':'বাংলা'
     },
     'bn': {
-      'hero-title':'রেস্টিগন — বিশ্বাস রাখুন আমাদের মেরামতে',
-      'hero-desc':'আপনার গাড়ির ফুয়েল পাম্প ও ইনজেক্টর পরীক্ষার ৩০ বছরের অভিজ্ঞতা।',
-      'about-title':'আমাদের ব্যবস্থাপনা পরিচালক — মোঃ কাশেম খান',
-      'about-desc':'রেস্টিগনে, আমরা ফুয়েল পাম্প এবং ইনজেক্টর পরীক্ষায় ৩০ বছরের পেশাদার অভিজ্ঞতা একত্রিত করেছি। আমাদের বিশেষজ্ঞ এমডি কাশেম খানের নেতৃত্বে, আমাদের প্রযুক্তিবিদরা নিশ্চিত করেন প্রতিটি পরীক্ষায় নিখুঁততা, নির্ভরযোগ্যতা এবং অসাধারণ কার্যকারিতা।',
-      'services-title':'আমাদের সেবাসমূহ',
-      'service1-title':'ফুয়েল পাম্প পরীক্ষা',
-      'service1-desc':'সব ধরণের পাম্পের সম্পূর্ণ বেন্চ পরীক্ষা ও ফ্লো বিশ্লেষণ।',
-      'service2-title':'ইনজেক্টর পরীক্ষা ও পরিস্কার',
-      'service2-desc':'সঠিক atomization পরীক্ষা ও আল্ট্রাসনিক পরিস্কার সকল ইনজেক্টরের জন্য।',
-      'service3-title':'ক্যালিব্রেশন ও মেরামত',
-      'service3-desc':'ক্যালিব্রেশন, মেরামত ও অংশ প্রতিস্থাপন সহ ওয়ারেন্টি।',
-      'contact-title':'যোগাযোগ করুন',
-      'contact-desc':'পরীক্ষার বুকিং বা কোটেশন চাইলে কল করুন অথবা সোশ্যাল মিডিয়ায় ম্যাসেজ করুন।',
+      // Document Title
+      'doc-title':'রেস্টিগন — ডিজেল পাম্প ও ইনজেক্টর পরিষেবা',
+      // Page Header
+      'page-title':'ডিজেল ফুয়েল সিস্টেম পরীক্ষা ও মেরামতে বিশেষজ্ঞ পরিষেবা',
+      'page-lead':'আমরা উন্নত টেস্ট বেঞ্চ প্রযুক্তি ব্যবহার করে সব ধরণের ডিজেল পাম্প ও ইনজেক্টরের জন্য নির্ভুল ডায়াগনস্টিকস, ফ্লো টেস্টিং এবং বিশেষজ্ঞ মেরামত পরিষেবা প্রদান করি। **মেরামতে ভরসা রাখুন।**',
+      'section-services-title':'আমাদের প্রধান বিশেষত্বসমূহ',
+      // Service 1
+      'service1-title':'কমোন রেইল ও রোটারি পাম্প পরীক্ষা',
+      'service1-desc':'আধুনিক ডিজেল ইঞ্জিনগুলি অত্যন্ত নির্ভুল হাই-প্রেশার ফুয়েল পাম্পের উপর নির্ভর করে। আমাদের বিশেষ **টেস্ট বেঞ্চ** কোনো কর্মক্ষমতা সমস্যা চিহ্নিত করতে বিস্তারিত ফ্লো এবং চাপ ডায়াগনোসিস প্রদান করে।',
+      'service1-list': '<li>ইলেকট্রনিক ডায়াগনস্টিকস (ফ্লো/প্রেশার)</li><li>সিল ও কম্পোনেন্ট প্রতিস্থাপন</li><li>সম্পূর্ণ পাম্প রিক্যালিব্রেশন</li>',
+      'service1-btn':'পাম্প টেস্ট বুক করুন',
+      // Service 2
+      'service2-title':'ইনজেক্টর ও নজল ফ্লো টেস্টিং',
+      'service2-desc':'পরিষ্কার দহনের জন্য ফুয়েল ইনজেক্টর অত্যন্ত গুরুত্বপূর্ণ। সর্বোত্তম ফুয়েল ডেলিভারি নিশ্চিত করতে আমরা **কমোন রেইল** এবং পুরোনো **নজল** উভয়ের জন্যই অ্যাটমাইজেশন প্যাটার্ন চেক ও নির্ভুল ফ্লো টেস্ট করে থাকি।',
+      'service2-list': '<li>অ্যাটমাইজেশন প্যাটার্ন পরীক্ষা</li><li>আল্ট্রাসনিক ক্লিনিং ও সিলিং</li><li>নজল প্রতিস্থাপন ও ক্যালিব্রেশন</li>',
+      'service2-btn':'নজল টেস্ট বুক করুন',
+      // Service 3
+      'service3-title':'ইনলাইন (লাইনার) পাম্প মেরামত ও টাইমিং',
+      'service3-desc':'পুরোনো কমার্শিয়াল যানবাহন ও ইন্ডাস্ট্রিয়াল ইঞ্জিনে ব্যবহৃত হেভি-ডিউটি **লাইনার পাম্প** মেরামতে আমরা দক্ষতা বজায় রাখি। সর্বোচ্চ দক্ষতার জন্য আমরা সঠিক পাম্প টাইমিং ও এলিমেন্ট ক্যালিব্রেশন নিশ্চিত করি।',
+      'service3-list': '<li>টাইমিং এবং এলিমেন্ট সিনক্রোনাইজেশন</li><li>ফ্লো রেটের জন্য বেঞ্চ টেস্টিং</li><li>সম্পূর্ণ ওভারহোল ও রীসিল</li>',
+      'service3-btn':'লাইনার সার্ভিসের জন্য অনুরোধ করুন',
+      // Contact CTA
+      'contact-title-cta':'আপনার পাম্প বা ইনজেক্টর মেরামত করতে প্রস্তুত?',
+      'contact-desc-cta':'আমাদের মূল শক্তি হল **মেরামত** এবং **ফ্লো টেস্টিং**। টেস্ট বেঞ্চ অ্যাপয়েন্টমেন্ট বুক করতে বা আপনার ফুয়েল সিস্টেমের সমস্যা সম্পর্কে জানতে আমাদের কল করুন।',
+      'contact-btn-cta':'সার্ভিসের জন্য এখনি কল করুন',
+      // Footer/Nav
       'footer-text':'© ২০২৫ রেস্টিগন। সকল অধিকার সংরক্ষিত।',
+      'side-link-services':'সেবাসমূহ (পরীক্ষা ও মেরামত)',
+      'side-link-products':'পণ্যসমূহ (যন্ত্রাংশ)',
+      'footer-link-about':'আমাদের সম্পর্কে',
+      'footer-link-services':'সেবাসমূহ',
+      'footer-link-products':'পণ্যসমূহ',
+      'footer-link-contact':'যোগাযোগ',
       'lang-btn-text':'English'
     }
   };
 
   let currentLang = 'en';
   const langBtn = document.getElementById('lang-toggle');
-  langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'bn' : 'en';
-    langBtn.innerText = translations[currentLang]['lang-btn-text'];
-    Object.keys(translations[currentLang]).forEach(id => {
-      const el = document.getElementById(id);
-      if(el) el.innerText = translations[currentLang][id];
-    });
-  });
-</script>
 
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const sideMenu = document.getElementById('sideMenu');
-  const closeMenuBtn = document.getElementById('closeMenu');
-  menuBtn.addEventListener('click', () => sideMenu.classList.add('open'));
-  closeMenuBtn.addEventListener('click', () => sideMenu.classList.remove('open'));
-  function closeMenu(){ sideMenu.classList.remove('open'); }
+  // Function to apply translations
+  function applyTranslations() {
+    const activeTranslations = translations[currentLang];
+    
+    // Set button text
+    langBtn.innerText = activeTranslations['lang-btn-text'];
+
+    // Apply translations to all elements with IDs
+    Object.keys(activeTranslations).forEach(id => {
+      const el = document.getElementById(id);
+      if(el) {
+        // Use innerHTML for descriptions (desc, lead, cta) and lists
+        if (id.includes('-desc') || id.includes('page-lead') || id.includes('-cta') || id.includes('-list')) {
+           el.innerHTML = activeTranslations[id];
+        } else {
+           el.innerText = activeTranslations[id];
+        }
+      }
+    });
+    // Set document title separately
+    document.title = activeTranslations['doc-title'];
+  }
+
+  // Event listener for language toggle button
+  langBtn && langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'bn' : 'en';
+    applyTranslations();
+  });
+
+  // Apply translations on initial load
+  document.addEventListener('DOMContentLoaded', applyTranslations);
 </script>
 
 </body>
 </html>
-
